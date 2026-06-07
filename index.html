@@ -1,165 +1,372 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Akuma No Melt</title><style>
+
+<title>Akuma No Melt</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#090303;
+--panel:#140606;
+--accent:#9c261c;
+--accent2:#c65d2d;
+--gold:#f1dfc2;
+--text:#f4ede3;
+--border:rgba(255,255,255,.08);
+}
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
-    font-family: Georgia, serif;
-    background:#120b08;
-    color:#f0e6d2;
+background:var(--bg);
+color:var(--text);
+font-family:"Cormorant Garamond",serif;
+overflow-x:hidden;
+}
+
+a{
+text-decoration:none;
+color:inherit;
 }
 
 header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:25px 8%;
-    border-bottom:1px solid rgba(255,255,255,.08);
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(9,3,3,.95);
+backdrop-filter:blur(8px);
+border-bottom:1px solid var(--border);
+}
+
+.nav{
+max-width:1400px;
+margin:auto;
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
 .logo{
-    color:#b92d2d;
-    font-size:2rem;
-    font-weight:bold;
+font-family:"Cinzel",serif;
+font-size:2rem;
+font-weight:700;
+color:#c1372d;
+letter-spacing:2px;
 }
 
-nav a{
-    color:#f0e6d2;
-    text-decoration:none;
-    margin-left:25px;
+.menu{
+display:flex;
+gap:40px;
+}
+
+.menu a{
+font-size:1rem;
+letter-spacing:2px;
+text-transform:uppercase;
 }
 
 .hero{
-    min-height:80vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    padding:80px 8%;
-    background:
-    linear-gradient(rgba(18,11,8,.65),rgba(18,11,8,.65)),
-    url("https://images.unsplash.com/photo-1603006905003-be475563bc59?w=1600");
-    background-size:cover;
-    background-position:center;
+min-height:90vh;
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+padding:80px;
+background:
+linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+radial-gradient(circle at center,#3d0000 0%,#090303 70%);
 }
 
-.hero h1{
-    font-size:4rem;
-    color:#f0e6d2;
-    margin-bottom:20px;
+.hero-content h1{
+font-family:"Cinzel",serif;
+font-size:6rem;
+line-height:1;
+margin-bottom:25px;
+color:var(--gold);
 }
 
-.hero p{
-    max-width:600px;
-    font-size:1.2rem;
-    line-height:1.7;
+.hero-content .tagline{
+font-size:1.6rem;
+letter-spacing:2px;
+text-transform:uppercase;
+margin-bottom:25px;
+}
+
+.hero-content p{
+font-size:1.4rem;
+line-height:1.8;
+max-width:550px;
 }
 
 .btn{
-    display:inline-block;
-    margin-top:30px;
-    background:#8f1d2c;
-    color:white;
-    text-decoration:none;
-    padding:14px 28px;
+display:inline-block;
+margin-top:35px;
+padding:16px 34px;
+background:linear-gradient(90deg,#8e1d16,#c65d2d);
+color:white;
+font-weight:bold;
+letter-spacing:2px;
+text-transform:uppercase;
+border-radius:4px;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+.hero-image{
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.fruit-placeholder{
+width:450px;
+height:450px;
+border-radius:50%;
+background:
+radial-gradient(circle at 30% 30%,#d7463d,#7a0909);
+box-shadow:
+0 0 80px rgba(190,20,20,.5);
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+background:#220707;
+border-top:1px solid var(--border);
+border-bottom:1px solid var(--border);
+}
+
+.feature{
+padding:40px;
+text-align:center;
+}
+
+.feature h3{
+font-family:"Cinzel",serif;
+margin-bottom:10px;
 }
 
 .section{
-    padding:80px 8%;
+padding:120px 60px;
+max-width:1400px;
+margin:auto;
 }
 
 .section-title{
-    text-align:center;
-    font-size:2.5rem;
-    margin-bottom:50px;
+text-align:center;
+font-family:"Cinzel",serif;
+font-size:3.5rem;
+margin-bottom:70px;
+color:var(--gold);
 }
 
 .products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:25px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
 }
 
 .card{
-    background:#1d120e;
-    border:1px solid rgba(255,255,255,.08);
-    padding:20px;
-    text-align:center;
+background:#120707;
+border:1px solid var(--border);
+overflow:hidden;
+transition:.3s;
 }
 
-.card img{
-    width:100%;
-    border-radius:10px;
+.card:hover{
+transform:translateY(-10px);
 }
 
-.card h3{
-    margin-top:15px;
+.card-image{
+height:280px;
+background:
+radial-gradient(circle,#8c1818,#180404);
 }
 
-.story{
-    background:#1a100d;
+.card-body{
+padding:25px;
+text-align:center;
+}
+
+.card-body h3{
+font-family:"Cinzel",serif;
+margin-bottom:10px;
+}
+
+.price{
+margin-top:15px;
+font-size:1.4rem;
+color:var(--gold);
 }
 
 footer{
-    text-align:center;
-    padding:40px;
-    border-top:1px solid rgba(255,255,255,.08);
+background:#0c0404;
+border-top:1px solid var(--border);
+padding:80px 40px;
+text-align:center;
 }
-</style></head><body><header>
-    <div class="logo">AKUMA NO MELT</div><nav>
-    <a href="#">Home</a>
-    <a href="#">Shop</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
+
+@media(max-width:900px){
+
+.hero{
+grid-template-columns:1fr;
+padding:40px;
+text-align:center;
+}
+
+.hero-content h1{
+font-size:4rem;
+}
+
+.features{
+grid-template-columns:1fr 1fr;
+}
+
+.menu{
+display:none;
+}
+
+.fruit-placeholder{
+width:280px;
+height:280px;
+margin-top:40px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+
+<div class="logo">
+AKUMA NO MELT
+</div>
+
+<nav class="menu">
+<a href="#">Home</a>
+<a href="#">Shop</a>
+<a href="#">Collections</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
 </nav>
 
-</header><section class="hero">
-    <h1>Burn The Legend.</h1><p>
-    Handcrafted Akuma No Mi candles inspired by legendary fruits.
-    Unique scents. Premium wax. Built for collectors and dreamers.
+</div>
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Akuma No Melt</h1>
+
+<div class="tagline">
+Exotic Power. Scented To Perfection.
+</div>
+
+<p>
+Handcrafted Akuma No Mi candles inspired by legendary fruits.
+Each candle holds a unique scent. Which power will you awaken?
 </p>
 
-<a class="btn" href="#">Shop Collection</a>
-
-</section><section class="section">
-    <h2 class="section-title">Choose Your Power</h2><div class="products">
-
-    <div class="card">
-        <h3>Gomu Gomu No Mi</h3>
-        <p>Berry Burst</p>
-    </div>
-
-    <div class="card">
-        <h3>Mera Mera No Mi</h3>
-        <p>Spiced Orange</p>
-    </div>
-
-    <div class="card">
-        <h3>Yami Yami No Mi</h3>
-        <p>Dark Amber</p>
-    </div>
-
-    <div class="card">
-        <h3>Ope Ope No Mi</h3>
-        <p>White Musk</p>
-    </div>
+<a href="#" class="btn">
+Shop The Collection
+</a>
 
 </div>
 
-</section><section class="section story"><h2 class="section-title">Born From Legend</h2>
+<div class="hero-image">
+<div class="fruit-placeholder"></div>
+</div>
 
-<p style="max-width:800px;margin:auto;text-align:center;line-height:1.8;">
-    Akuma No Melt was created for fans, collectors and adventurers.
-    Every candle is inspired by a legendary fruit and handcrafted
-    to create a unique experience when lit.
-</p>
+</section>
 
-</section><footer>
-    © 2025 Akuma No Melt
-</footer></body>
+<section class="features">
+
+<div class="feature">
+<h3>Handcrafted</h3>
+<p>Made with premium ingredients.</p>
+</div>
+
+<div class="feature">
+<h3>Unique Scents</h3>
+<p>Every fruit has its own aroma.</p>
+</div>
+
+<div class="feature">
+<h3>Natural Wax</h3>
+<p>Clean long-lasting burn.</p>
+</div>
+
+<div class="feature">
+<h3>Perfect Gift</h3>
+<p>For collectors and anime fans.</p>
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">
+Choose Your Power
+</h2>
+
+<div class="products">
+
+<div class="card">
+<div class="card-image"></div>
+<div class="card-body">
+<h3>Gomu Gomu No Mi</h3>
+<p>Berry Burst</p>
+<div class="price">€34.99</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-image"></div>
+<div class="card-body">
+<h3>Mera Mera No Mi</h3>
+<p>Spiced Orange</p>
+<div class="price">€34.99</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-image"></div>
+<div class="card-body">
+<h3>Yami Yami No Mi</h3>
+<p>Dark Amber</p>
+<div class="price">€34.99</div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+<h2>Akuma No Melt</h2>
+<p>Awaken Your Power.</p>
+</footer>
+
+</body>
 </html>
