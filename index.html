@@ -1,12 +1,165 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Business</title>
-</head>
-<body>
-    <h1>Welcome to My Business</h1>
-    <p>This website is under construction.</p>
-</body>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akuma No Melt</title><style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Georgia, serif;
+    background:#120b08;
+    color:#f0e6d2;
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 8%;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    color:#b92d2d;
+    font-size:2rem;
+    font-weight:bold;
+}
+
+nav a{
+    color:#f0e6d2;
+    text-decoration:none;
+    margin-left:25px;
+}
+
+.hero{
+    min-height:80vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:80px 8%;
+    background:
+    linear-gradient(rgba(18,11,8,.65),rgba(18,11,8,.65)),
+    url("https://images.unsplash.com/photo-1603006905003-be475563bc59?w=1600");
+    background-size:cover;
+    background-position:center;
+}
+
+.hero h1{
+    font-size:4rem;
+    color:#f0e6d2;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:600px;
+    font-size:1.2rem;
+    line-height:1.7;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    background:#8f1d2c;
+    color:white;
+    text-decoration:none;
+    padding:14px 28px;
+}
+
+.section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:50px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#1d120e;
+    border:1px solid rgba(255,255,255,.08);
+    padding:20px;
+    text-align:center;
+}
+
+.card img{
+    width:100%;
+    border-radius:10px;
+}
+
+.card h3{
+    margin-top:15px;
+}
+
+.story{
+    background:#1a100d;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+</style></head><body><header>
+    <div class="logo">AKUMA NO MELT</div><nav>
+    <a href="#">Home</a>
+    <a href="#">Shop</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+</nav>
+
+</header><section class="hero">
+    <h1>Burn The Legend.</h1><p>
+    Handcrafted Akuma No Mi candles inspired by legendary fruits.
+    Unique scents. Premium wax. Built for collectors and dreamers.
+</p>
+
+<a class="btn" href="#">Shop Collection</a>
+
+</section><section class="section">
+    <h2 class="section-title">Choose Your Power</h2><div class="products">
+
+    <div class="card">
+        <h3>Gomu Gomu No Mi</h3>
+        <p>Berry Burst</p>
+    </div>
+
+    <div class="card">
+        <h3>Mera Mera No Mi</h3>
+        <p>Spiced Orange</p>
+    </div>
+
+    <div class="card">
+        <h3>Yami Yami No Mi</h3>
+        <p>Dark Amber</p>
+    </div>
+
+    <div class="card">
+        <h3>Ope Ope No Mi</h3>
+        <p>White Musk</p>
+    </div>
+
+</div>
+
+</section><section class="section story"><h2 class="section-title">Born From Legend</h2>
+
+<p style="max-width:800px;margin:auto;text-align:center;line-height:1.8;">
+    Akuma No Melt was created for fans, collectors and adventurers.
+    Every candle is inspired by a legendary fruit and handcrafted
+    to create a unique experience when lit.
+</p>
+
+</section><footer>
+    © 2025 Akuma No Melt
+</footer></body>
 </html>
