@@ -1,158 +1,610 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Akuma No Melt</title>
-
-<link rel="stylesheet" href="css/style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akuma No Melt — Exotic Power. Scented to Perfection.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
 
-<header>
-<div class="logo">
-ANM
-</div>
+  <!-- ═══ NAVBAR ═══ -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="18" r="11" fill="none" stroke="#c94a1a" stroke-width="1.5"/>
+          <circle cx="16" cy="18" r="7" fill="none" stroke="#c94a1a" stroke-width="1"/>
+          <circle cx="16" cy="18" r="3.5" fill="#c94a1a"/>
+          <path d="M16 7 C16 7 13 2 16 0 C19 2 16 7 16 7Z" fill="#c94a1a"/>
+        </svg>
+        <span>Akuma No Melt</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#" class="nav-link active">Home</a>
+        <a href="#collection" class="nav-link">Shop</a>
+        <a href="#story" class="nav-link">About</a>
+        <a href="#collection" class="nav-link">Collections</a>
+        <a href="#footer" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="nav-btn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <button class="nav-btn" aria-label="Cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#">Home</a>
+      <a href="#collection">Shop</a>
+      <a href="#story">About</a>
+      <a href="#collection">Collections</a>
+      <a href="#footer">Contact</a>
+    </div>
+  </header>
 
-<nav>
-<a href="#">Home</a>
-<a href="#">Collection</a>
-<a href="#">About</a>
-<a href="#">Contact</a>
-</nav>
-</header>
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <!-- Atmospheric background -->
+      <div class="hero-smoke"></div>
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-title">Akuma No Melt</h1>
+      <div class="hero-divider">
+        <svg viewBox="0 0 120 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="10" x2="45" y2="10" stroke="#c94a1a" stroke-width="0.8"/>
+          <circle cx="60" cy="10" r="6" fill="none" stroke="#c94a1a" stroke-width="1"/>
+          <circle cx="60" cy="10" r="3" fill="#c94a1a"/>
+          <line x1="75" y1="10" x2="120" y2="10" stroke="#c94a1a" stroke-width="0.8"/>
+        </svg>
+      </div>
+      <p class="hero-tagline">EXOTIC POWER. SCENTED TO PERFECTION.</p>
+      <p class="hero-desc">Handcrafted Akuma no Mi candles inspired by<br>legendary Devil Fruits. Each candle holds a<br>unique scent. Which power will you awaken?</p>
+      <a href="#collection" class="btn-primary">SHOP THE COLLECTION</a>
+    </div>
+    <div class="hero-candle">
+      <div class="candle-wrapper">
+        <!-- Main hero candle: Gomu Gomu (Red) -->
+        <svg class="candle-svg hero-candle-svg" viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+          <!-- Flame -->
+          <g class="flame-group">
+            <ellipse cx="130" cy="28" rx="5" ry="9" fill="#fff9c4" opacity="0.9"/>
+            <ellipse cx="130" cy="32" rx="4" ry="13" fill="#ffcc44"/>
+            <ellipse cx="130" cy="38" rx="6" ry="16" fill="#ff8800" opacity="0.85"/>
+            <path d="M124 44 Q130 18 136 44 Q133 52 130 54 Q127 52 124 44Z" fill="#ffdd88"/>
+          </g>
+          <!-- Wick -->
+          <path d="M128 54 Q129 62 130 68 Q131 62 132 54" stroke="#3a2a1a" stroke-width="2" fill="none"/>
+          <!-- Ornate handle -->
+          <path d="M110 68 Q95 55 88 42 Q84 32 90 26 Q96 22 100 30" stroke="#8B6914" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <path d="M150 68 Q165 55 172 42 Q176 32 170 26 Q164 22 160 30" stroke="#8B6914" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <!-- Main fruit body -->
+          <ellipse cx="130" cy="185" rx="98" ry="100" fill="url(#heroGrad)"/>
+          <!-- Spiral bumps pattern -->
+          <g opacity="0.85">
+            <!-- Row 1 top -->
+            <ellipse cx="130" cy="102" rx="14" ry="14" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <ellipse cx="100" cy="112" rx="13" ry="13" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <ellipse cx="160" cy="112" rx="13" ry="13" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <!-- Row 2 -->
+            <ellipse cx="80" cy="135" rx="13" ry="13" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <ellipse cx="115" cy="130" rx="14" ry="14" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <ellipse cx="145" cy="130" rx="14" ry="14" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <ellipse cx="180" cy="135" rx="13" ry="13" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <!-- Row 3 mid -->
+            <ellipse cx="68" cy="163" rx="13" ry="13" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <ellipse cx="100" cy="155" rx="14" ry="14" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <ellipse cx="130" cy="152" rx="15" ry="15" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <ellipse cx="160" cy="155" rx="14" ry="14" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <ellipse cx="192" cy="163" rx="13" ry="13" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <!-- Row 4 -->
+            <ellipse cx="72" cy="192" rx="13" ry="13" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <ellipse cx="103" cy="183" rx="14" ry="14" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <ellipse cx="133" cy="180" rx="15" ry="15" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <ellipse cx="163" cy="183" rx="14" ry="14" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <ellipse cx="190" cy="192" rx="13" ry="13" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <!-- Row 5 lower -->
+            <ellipse cx="85" cy="215" rx="13" ry="12" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <ellipse cx="115" cy="208" rx="13" ry="13" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <ellipse cx="145" cy="208" rx="13" ry="13" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <ellipse cx="175" cy="215" rx="13" ry="12" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <!-- Row 6 bottom -->
+            <ellipse cx="105" cy="235" rx="12" ry="11" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <ellipse cx="130" cy="233" rx="13" ry="12" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <ellipse cx="155" cy="235" rx="12" ry="11" fill="url(#bumpDark)" stroke="#7a0a0a" stroke-width="0.5"/>
+            <!-- Spiral lines on bumps -->
+            <g stroke="#6a0808" stroke-width="0.8" fill="none" opacity="0.6">
+              <circle cx="130" cy="102" r="8"/>
+              <circle cx="130" cy="152" r="9"/>
+              <circle cx="130" cy="180" r="10"/>
+            </g>
+          </g>
+          <!-- Shine -->
+          <ellipse cx="100" cy="130" rx="20" ry="30" fill="white" opacity="0.07" transform="rotate(-20 100 130)"/>
+          <!-- Plate/base -->
+          <ellipse cx="130" cy="278" rx="80" ry="14" fill="url(#plateGrad)"/>
+          <ellipse cx="130" cy="274" rx="78" ry="10" fill="#5a3a12" opacity="0.5"/>
+          <defs>
+            <radialGradient id="heroGrad" cx="38%" cy="30%">
+              <stop offset="0%" stop-color="#cc1111"/>
+              <stop offset="50%" stop-color="#8b0000"/>
+              <stop offset="100%" stop-color="#440000"/>
+            </radialGradient>
+            <radialGradient id="bumpDark" cx="35%" cy="30%">
+              <stop offset="0%" stop-color="#dd2222"/>
+              <stop offset="100%" stop-color="#660000"/>
+            </radialGradient>
+            <linearGradient id="plateGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#8B6914"/>
+              <stop offset="100%" stop-color="#3a2a08"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <!-- Glow effect -->
+        <div class="candle-glow"></div>
+      </div>
+    </div>
+  </section>
 
-<section class="hero">
+  <!-- ═══ FEATURES BAR ═══ -->
+  <section class="features-bar">
+    <div class="feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 40 40" fill="none"><path d="M20 8 C20 8 14 4 14 10 C14 14 17 15 20 20 C23 15 26 14 26 10 C26 4 20 8 20 8Z" stroke="#c94a1a" stroke-width="1.2" fill="none"/><path d="M12 28 Q20 22 28 28" stroke="#c94a1a" stroke-width="1.2" fill="none"/><path d="M8 34 L32 34" stroke="#c94a1a" stroke-width="1.2"/><path d="M8 36 Q20 30 32 36" stroke="#c94a1a" stroke-width="1" fill="none" opacity="0.5"/></svg>
+      </div>
+      <h3>HANDCRAFTED</h3>
+      <p>Made with care using premium ingredients.</p>
+    </div>
+    <div class="feature-divider"></div>
+    <div class="feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 40 40" fill="none"><path d="M20 6 C18 10 12 14 12 20 C12 26 15 30 20 32 C25 30 28 26 28 20 C28 14 22 10 20 6Z" stroke="#c94a1a" stroke-width="1.2" fill="none"/><path d="M16 22 C16 22 18 28 20 30 C22 28 24 22 24 22" stroke="#c94a1a" stroke-width="1" fill="none"/></svg>
+      </div>
+      <h3>UNIQUE SCENTS</h3>
+      <p>Each Devil Fruit has a powerful, unique aroma.</p>
+    </div>
+    <div class="feature-divider"></div>
+    <div class="feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 40 40" fill="none"><path d="M20 10 C12 10 8 16 8 22 C8 28 13 34 20 34 C27 34 32 28 32 22 C32 16 28 10 20 10Z" stroke="#c94a1a" stroke-width="1.2" fill="none"/><path d="M14 20 L18 24 L26 16" stroke="#c94a1a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>NATURAL WAX</h3>
+      <p>Eco-friendly soy wax for a clean, long-lasting burn.</p>
+    </div>
+    <div class="feature-divider"></div>
+    <div class="feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 40 40" fill="none"><rect x="10" y="14" width="20" height="18" rx="2" stroke="#c94a1a" stroke-width="1.2" fill="none"/><path d="M10 20 L30 20" stroke="#c94a1a" stroke-width="1.2"/><path d="M20 8 L20 14" stroke="#c94a1a" stroke-width="1.2"/><path d="M14 8 Q20 4 26 8" stroke="#c94a1a" stroke-width="1.2" fill="none"/></svg>
+      </div>
+      <h3>PERFECT GIFT</h3>
+      <p>Ideal for anime lovers and candle collectors.</p>
+    </div>
+  </section>
 
-<div class="hero-text">
+  <!-- ═══ COLLECTION ═══ -->
+  <section class="collection" id="collection">
+    <div class="section-eyebrow">OUR COLLECTION</div>
+    <h2 class="section-title">CHOOSE YOUR POWER</h2>
+    <div class="title-ornament">
+      <svg viewBox="0 0 80 14" fill="none"><line x1="0" y1="7" x2="28" y2="7" stroke="#c94a1a" stroke-width="0.8"/><circle cx="40" cy="7" r="4" fill="none" stroke="#c94a1a" stroke-width="1"/><circle cx="40" cy="7" r="1.5" fill="#c94a1a"/><line x1="52" y1="7" x2="80" y2="7" stroke="#c94a1a" stroke-width="0.8"/></svg>
+    </div>
 
-<p class="subtitle">AKUMA NO MELT</p>
+    <div class="product-grid">
+      <!-- GOMU GOMU -->
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <div class="product-candle gomu">
+            <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+              <g class="flame-group-sm">
+                <ellipse cx="100" cy="20" rx="4" ry="8" fill="#ffcc44"/>
+                <ellipse cx="100" cy="24" rx="5" ry="12" fill="#ff8800" opacity="0.8"/>
+              </g>
+              <path d="M96 32 Q97 40 100 46 Q103 40 104 32" stroke="#2a1a0a" stroke-width="1.5" fill="none"/>
+              <path d="M82 46 Q72 36 67 26 Q63 16 69 11 Q75 8 78 16" stroke="#8B6914" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M118 46 Q128 36 133 26 Q137 16 131 11 Q125 8 122 16" stroke="#8B6914" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <ellipse cx="100" cy="140" rx="72" ry="76" fill="url(#gomuGrad)"/>
+              <g opacity="0.9">
+                <ellipse cx="100" cy="82" rx="10" ry="10" fill="url(#gomuBump)" stroke="#7a0000" stroke-width="0.5"/>
+                <ellipse cx="78" cy="92" rx="10" ry="10" fill="url(#gomuBump)" stroke="#7a0000" stroke-width="0.5"/>
+                <ellipse cx="122" cy="92" rx="10" ry="10" fill="url(#gomuBump)" stroke="#7a0000" stroke-width="0.5"/>
+                <ellipse cx="63" cy="112" rx="9" ry="9" fill="url(#gomuBump)" stroke="#7a0000" stroke-width="0.5"/>
+                <ellipse cx="88" cy="106" rx="10" ry="10" fill="url(#gomuBump)" stroke="#7a0000" stroke-width="0.5"/>
+                <ellipse cx="112" cy="106" rx="10" ry="10" fill="url(#gomuBump)" stroke="#7a0000" stroke-width="0.5"/>
+                <ellipse cx="137" cy="112" rx="9" ry="9" fill="url(#gomuBump)" stroke="#7a0000" stroke-width="0.5"/>
+                <ellipse cx="57" cy="136" rx="9" ry="9" fill="url(#gomuBump)" stroke="#7a0000" stroke-width="0.5"/>
+                <ellipse cx="80" cy="128" rx="10" ry="10" fill="url(#gomuBump)" stroke="#7a0000" stroke-width="0.5"/>
+                <ellipse cx="100" cy="125" rx="11" ry="11" fill="url(#gomuBump)" stroke="#7a0000" stroke-width="0.5"/>
+                <ellipse cx="120" cy="128" rx="10" ry="10" fill="url(#gomuBump)" stroke="#7a0000" stroke-width="0.5"/>
+                <ellipse cx="143" cy="136" rx="9" ry="9" fill="url(#gomuBump)" stroke="#7a0000" stroke-width="0.5"/>
+                <ellipse cx="62" cy="160" rx="9" ry="9" fill="url(#gomuBump)" stroke="#7a0000" stroke-width="0.5"/>
+                <ellipse cx="84" cy="151" rx="10" ry="10" fill="url(#gomuBump)" stroke="#7a0000" stroke-width="0.5"/>
+                <ellipse cx="107" cy="149" rx="11" ry="11" fill="url(#gomuBump)" stroke="#7a0000" stroke-width="0.5"/>
+                <ellipse cx="128" cy="152" rx="10" ry="10" fill="url(#gomuBump)" stroke="#7a0000" stroke-width="0.5"/>
+                <ellipse cx="148" cy="160" rx="9" ry="8" fill="url(#gomuBump)" stroke="#7a0000" stroke-width="0.5"/>
+                <ellipse cx="78" cy="176" rx="9" ry="9" fill="url(#gomuBump)" stroke="#7a0000" stroke-width="0.5"/>
+                <ellipse cx="100" cy="172" rx="10" ry="10" fill="url(#gomuBump)" stroke="#7a0000" stroke-width="0.5"/>
+                <ellipse cx="122" cy="176" rx="9" ry="9" fill="url(#gomuBump)" stroke="#7a0000" stroke-width="0.5"/>
+              </g>
+              <ellipse cx="100" cy="208" rx="58" ry="10" fill="url(#plateSmGrad)"/>
+              <defs>
+                <radialGradient id="gomuGrad" cx="38%" cy="30%">
+                  <stop offset="0%" stop-color="#cc1111"/>
+                  <stop offset="55%" stop-color="#8b0000"/>
+                  <stop offset="100%" stop-color="#3d0000"/>
+                </radialGradient>
+                <radialGradient id="gomuBump" cx="35%" cy="30%">
+                  <stop offset="0%" stop-color="#e02020"/>
+                  <stop offset="100%" stop-color="#700000"/>
+                </radialGradient>
+                <linearGradient id="plateSmGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#8B6914"/>
+                  <stop offset="100%" stop-color="#3a2a08"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>GOMU GOMU NO MI</h3>
+          <p class="product-scent">Berry Burst</p>
+          <p class="product-price">€34.99</p>
+          <button class="btn-outline">VIEW PRODUCT</button>
+        </div>
+      </div>
 
-<h1>
-AWAKEN<br>
-YOUR POWER
-</h1>
+      <!-- MERA MERA -->
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <div class="product-candle mera">
+            <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+              <g class="flame-group-sm">
+                <ellipse cx="100" cy="20" rx="4" ry="8" fill="#ffcc44"/>
+                <ellipse cx="100" cy="24" rx="5" ry="12" fill="#ff8800" opacity="0.8"/>
+              </g>
+              <path d="M96 32 Q97 40 100 46 Q103 40 104 32" stroke="#2a1a0a" stroke-width="1.5" fill="none"/>
+              <path d="M82 46 Q72 36 67 26 Q63 16 69 11 Q75 8 78 16" stroke="#8B6914" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M118 46 Q128 36 133 26 Q137 16 131 11 Q125 8 122 16" stroke="#8B6914" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <ellipse cx="100" cy="140" rx="72" ry="76" fill="url(#meraGrad)"/>
+              <g opacity="0.9">
+                <ellipse cx="100" cy="82" rx="10" ry="10" fill="url(#meraBump)" stroke="#8a4000" stroke-width="0.5"/>
+                <ellipse cx="78" cy="92" rx="10" ry="10" fill="url(#meraBump)" stroke="#8a4000" stroke-width="0.5"/>
+                <ellipse cx="122" cy="92" rx="10" ry="10" fill="url(#meraBump)" stroke="#8a4000" stroke-width="0.5"/>
+                <ellipse cx="63" cy="112" rx="9" ry="9" fill="url(#meraBump)" stroke="#8a4000" stroke-width="0.5"/>
+                <ellipse cx="88" cy="106" rx="10" ry="10" fill="url(#meraBump)" stroke="#8a4000" stroke-width="0.5"/>
+                <ellipse cx="112" cy="106" rx="10" ry="10" fill="url(#meraBump)" stroke="#8a4000" stroke-width="0.5"/>
+                <ellipse cx="137" cy="112" rx="9" ry="9" fill="url(#meraBump)" stroke="#8a4000" stroke-width="0.5"/>
+                <ellipse cx="57" cy="136" rx="9" ry="9" fill="url(#meraBump)" stroke="#8a4000" stroke-width="0.5"/>
+                <ellipse cx="80" cy="128" rx="10" ry="10" fill="url(#meraBump)" stroke="#8a4000" stroke-width="0.5"/>
+                <ellipse cx="100" cy="125" rx="11" ry="11" fill="url(#meraBump)" stroke="#8a4000" stroke-width="0.5"/>
+                <ellipse cx="120" cy="128" rx="10" ry="10" fill="url(#meraBump)" stroke="#8a4000" stroke-width="0.5"/>
+                <ellipse cx="143" cy="136" rx="9" ry="9" fill="url(#meraBump)" stroke="#8a4000" stroke-width="0.5"/>
+                <ellipse cx="62" cy="160" rx="9" ry="9" fill="url(#meraBump)" stroke="#8a4000" stroke-width="0.5"/>
+                <ellipse cx="84" cy="151" rx="10" ry="10" fill="url(#meraBump)" stroke="#8a4000" stroke-width="0.5"/>
+                <ellipse cx="107" cy="149" rx="11" ry="11" fill="url(#meraBump)" stroke="#8a4000" stroke-width="0.5"/>
+                <ellipse cx="128" cy="152" rx="10" ry="10" fill="url(#meraBump)" stroke="#8a4000" stroke-width="0.5"/>
+                <ellipse cx="148" cy="160" rx="9" ry="8" fill="url(#meraBump)" stroke="#8a4000" stroke-width="0.5"/>
+                <ellipse cx="78" cy="176" rx="9" ry="9" fill="url(#meraBump)" stroke="#8a4000" stroke-width="0.5"/>
+                <ellipse cx="100" cy="172" rx="10" ry="10" fill="url(#meraBump)" stroke="#8a4000" stroke-width="0.5"/>
+                <ellipse cx="122" cy="176" rx="9" ry="9" fill="url(#meraBump)" stroke="#8a4000" stroke-width="0.5"/>
+              </g>
+              <ellipse cx="100" cy="208" rx="58" ry="10" fill="url(#plateSmGrad2)"/>
+              <defs>
+                <radialGradient id="meraGrad" cx="38%" cy="30%">
+                  <stop offset="0%" stop-color="#ff9922"/>
+                  <stop offset="55%" stop-color="#cc5500"/>
+                  <stop offset="100%" stop-color="#6a2500"/>
+                </radialGradient>
+                <radialGradient id="meraBump" cx="35%" cy="30%">
+                  <stop offset="0%" stop-color="#ffaa33"/>
+                  <stop offset="100%" stop-color="#883300"/>
+                </radialGradient>
+                <linearGradient id="plateSmGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#8B6914"/>
+                  <stop offset="100%" stop-color="#3a2a08"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>MERA MERA NO MI</h3>
+          <p class="product-scent">Spiced Orange</p>
+          <p class="product-price">€34.99</p>
+          <button class="btn-outline">VIEW PRODUCT</button>
+        </div>
+      </div>
 
-<p>
-Handcrafted Akuma no Mi candles inspired by legendary Devil Fruits.
-Each candle carries a unique scent crafted to ignite imagination,
-adventure and nostalgia.
-</p>
+      <!-- YAMI YAMI -->
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <div class="product-candle yami">
+            <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+              <g class="flame-group-sm">
+                <ellipse cx="100" cy="20" rx="4" ry="8" fill="#ffcc44"/>
+                <ellipse cx="100" cy="24" rx="5" ry="12" fill="#ff8800" opacity="0.8"/>
+              </g>
+              <path d="M96 32 Q97 40 100 46 Q103 40 104 32" stroke="#2a1a0a" stroke-width="1.5" fill="none"/>
+              <path d="M82 46 Q72 36 67 26 Q63 16 69 11 Q75 8 78 16" stroke="#8B6914" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M118 46 Q128 36 133 26 Q137 16 131 11 Q125 8 122 16" stroke="#8B6914" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <ellipse cx="100" cy="140" rx="72" ry="76" fill="url(#yamiGrad)"/>
+              <g opacity="0.9">
+                <ellipse cx="100" cy="82" rx="10" ry="10" fill="url(#yamiBump)" stroke="#220033" stroke-width="0.5"/>
+                <ellipse cx="78" cy="92" rx="10" ry="10" fill="url(#yamiBump)" stroke="#220033" stroke-width="0.5"/>
+                <ellipse cx="122" cy="92" rx="10" ry="10" fill="url(#yamiBump)" stroke="#220033" stroke-width="0.5"/>
+                <ellipse cx="63" cy="112" rx="9" ry="9" fill="url(#yamiBump)" stroke="#220033" stroke-width="0.5"/>
+                <ellipse cx="88" cy="106" rx="10" ry="10" fill="url(#yamiBump)" stroke="#220033" stroke-width="0.5"/>
+                <ellipse cx="112" cy="106" rx="10" ry="10" fill="url(#yamiBump)" stroke="#220033" stroke-width="0.5"/>
+                <ellipse cx="137" cy="112" rx="9" ry="9" fill="url(#yamiBump)" stroke="#220033" stroke-width="0.5"/>
+                <ellipse cx="57" cy="136" rx="9" ry="9" fill="url(#yamiBump)" stroke="#220033" stroke-width="0.5"/>
+                <ellipse cx="80" cy="128" rx="10" ry="10" fill="url(#yamiBump)" stroke="#220033" stroke-width="0.5"/>
+                <ellipse cx="100" cy="125" rx="11" ry="11" fill="url(#yamiBump)" stroke="#220033" stroke-width="0.5"/>
+                <ellipse cx="120" cy="128" rx="10" ry="10" fill="url(#yamiBump)" stroke="#220033" stroke-width="0.5"/>
+                <ellipse cx="143" cy="136" rx="9" ry="9" fill="url(#yamiBump)" stroke="#220033" stroke-width="0.5"/>
+                <ellipse cx="62" cy="160" rx="9" ry="9" fill="url(#yamiBump)" stroke="#220033" stroke-width="0.5"/>
+                <ellipse cx="84" cy="151" rx="10" ry="10" fill="url(#yamiBump)" stroke="#220033" stroke-width="0.5"/>
+                <ellipse cx="107" cy="149" rx="11" ry="11" fill="url(#yamiBump)" stroke="#220033" stroke-width="0.5"/>
+                <ellipse cx="128" cy="152" rx="10" ry="10" fill="url(#yamiBump)" stroke="#220033" stroke-width="0.5"/>
+                <ellipse cx="148" cy="160" rx="9" ry="8" fill="url(#yamiBump)" stroke="#220033" stroke-width="0.5"/>
+                <ellipse cx="78" cy="176" rx="9" ry="9" fill="url(#yamiBump)" stroke="#220033" stroke-width="0.5"/>
+                <ellipse cx="100" cy="172" rx="10" ry="10" fill="url(#yamiBump)" stroke="#220033" stroke-width="0.5"/>
+                <ellipse cx="122" cy="176" rx="9" ry="9" fill="url(#yamiBump)" stroke="#220033" stroke-width="0.5"/>
+              </g>
+              <ellipse cx="100" cy="208" rx="58" ry="10" fill="url(#plateSmGrad3)"/>
+              <defs>
+                <radialGradient id="yamiGrad" cx="38%" cy="30%">
+                  <stop offset="0%" stop-color="#7b48a0"/>
+                  <stop offset="55%" stop-color="#4a1c72"/>
+                  <stop offset="100%" stop-color="#1a0030"/>
+                </radialGradient>
+                <radialGradient id="yamiBump" cx="35%" cy="30%">
+                  <stop offset="0%" stop-color="#9a5fc0"/>
+                  <stop offset="100%" stop-color="#330055"/>
+                </radialGradient>
+                <linearGradient id="plateSmGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#8B6914"/>
+                  <stop offset="100%" stop-color="#3a2a08"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>YAMI YAMI NO MI</h3>
+          <p class="product-scent">Dark Amber</p>
+          <p class="product-price">€34.99</p>
+          <button class="btn-outline">VIEW PRODUCT</button>
+        </div>
+      </div>
 
-<a href="#" class="btn">
-SHOP THE COLLECTION
-</a>
+      <!-- ITO ITO -->
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <div class="product-candle ito">
+            <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+              <g class="flame-group-sm">
+                <ellipse cx="100" cy="20" rx="4" ry="8" fill="#ffcc44"/>
+                <ellipse cx="100" cy="24" rx="5" ry="12" fill="#ff8800" opacity="0.8"/>
+              </g>
+              <path d="M96 32 Q97 40 100 46 Q103 40 104 32" stroke="#2a1a0a" stroke-width="1.5" fill="none"/>
+              <path d="M82 46 Q72 36 67 26 Q63 16 69 11 Q75 8 78 16" stroke="#8B6914" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M118 46 Q128 36 133 26 Q137 16 131 11 Q125 8 122 16" stroke="#8B6914" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <ellipse cx="100" cy="140" rx="72" ry="76" fill="url(#itoGrad)"/>
+              <g opacity="0.9">
+                <ellipse cx="100" cy="82" rx="10" ry="10" fill="url(#itoBump)" stroke="#9a8870" stroke-width="0.5"/>
+                <ellipse cx="78" cy="92" rx="10" ry="10" fill="url(#itoBump)" stroke="#9a8870" stroke-width="0.5"/>
+                <ellipse cx="122" cy="92" rx="10" ry="10" fill="url(#itoBump)" stroke="#9a8870" stroke-width="0.5"/>
+                <ellipse cx="63" cy="112" rx="9" ry="9" fill="url(#itoBump)" stroke="#9a8870" stroke-width="0.5"/>
+                <ellipse cx="88" cy="106" rx="10" ry="10" fill="url(#itoBump)" stroke="#9a8870" stroke-width="0.5"/>
+                <ellipse cx="112" cy="106" rx="10" ry="10" fill="url(#itoBump)" stroke="#9a8870" stroke-width="0.5"/>
+                <ellipse cx="137" cy="112" rx="9" ry="9" fill="url(#itoBump)" stroke="#9a8870" stroke-width="0.5"/>
+                <ellipse cx="57" cy="136" rx="9" ry="9" fill="url(#itoBump)" stroke="#9a8870" stroke-width="0.5"/>
+                <ellipse cx="80" cy="128" rx="10" ry="10" fill="url(#itoBump)" stroke="#9a8870" stroke-width="0.5"/>
+                <ellipse cx="100" cy="125" rx="11" ry="11" fill="url(#itoBump)" stroke="#9a8870" stroke-width="0.5"/>
+                <ellipse cx="120" cy="128" rx="10" ry="10" fill="url(#itoBump)" stroke="#9a8870" stroke-width="0.5"/>
+                <ellipse cx="143" cy="136" rx="9" ry="9" fill="url(#itoBump)" stroke="#9a8870" stroke-width="0.5"/>
+                <ellipse cx="62" cy="160" rx="9" ry="9" fill="url(#itoBump)" stroke="#9a8870" stroke-width="0.5"/>
+                <ellipse cx="84" cy="151" rx="10" ry="10" fill="url(#itoBump)" stroke="#9a8870" stroke-width="0.5"/>
+                <ellipse cx="107" cy="149" rx="11" ry="11" fill="url(#itoBump)" stroke="#9a8870" stroke-width="0.5"/>
+                <ellipse cx="128" cy="152" rx="10" ry="10" fill="url(#itoBump)" stroke="#9a8870" stroke-width="0.5"/>
+                <ellipse cx="148" cy="160" rx="9" ry="8" fill="url(#itoBump)" stroke="#9a8870" stroke-width="0.5"/>
+                <ellipse cx="78" cy="176" rx="9" ry="9" fill="url(#itoBump)" stroke="#9a8870" stroke-width="0.5"/>
+                <ellipse cx="100" cy="172" rx="10" ry="10" fill="url(#itoBump)" stroke="#9a8870" stroke-width="0.5"/>
+                <ellipse cx="122" cy="176" rx="9" ry="9" fill="url(#itoBump)" stroke="#9a8870" stroke-width="0.5"/>
+              </g>
+              <ellipse cx="100" cy="208" rx="58" ry="10" fill="url(#plateSmGrad4)"/>
+              <defs>
+                <radialGradient id="itoGrad" cx="38%" cy="30%">
+                  <stop offset="0%" stop-color="#f0e8d8"/>
+                  <stop offset="55%" stop-color="#c8b89a"/>
+                  <stop offset="100%" stop-color="#7a6040"/>
+                </radialGradient>
+                <radialGradient id="itoBump" cx="35%" cy="30%">
+                  <stop offset="0%" stop-color="#fffaf0"/>
+                  <stop offset="100%" stop-color="#a89070"/>
+                </radialGradient>
+                <linearGradient id="plateSmGrad4" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#8B6914"/>
+                  <stop offset="100%" stop-color="#3a2a08"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>ITO ITO NO MI</h3>
+          <p class="product-scent">Cotton Blossom</p>
+          <p class="product-price">€34.99</p>
+          <button class="btn-outline">VIEW PRODUCT</button>
+        </div>
+      </div>
+    </div>
 
-</div>
+    <div class="collection-cta">
+      <a href="#" class="btn-primary">VIEW ALL COLLECTIONS</a>
+    </div>
+  </section>
 
-<div class="hero-image">
+  <!-- ═══ STORY ═══ -->
+  <section class="story" id="story">
+    <div class="story-image">
+      <!-- Pirate ship sunset SVG -->
+      <svg viewBox="0 0 520 400" xmlns="http://www.w3.org/2000/svg" class="ship-svg">
+        <defs>
+          <radialGradient id="sunGrad" cx="50%" cy="60%">
+            <stop offset="0%" stop-color="#ffcc44"/>
+            <stop offset="30%" stop-color="#ff8800"/>
+            <stop offset="100%" stop-color="#220000"/>
+          </radialGradient>
+          <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#0a0208"/>
+            <stop offset="40%" stop-color="#3d0a00"/>
+            <stop offset="75%" stop-color="#8b2200"/>
+            <stop offset="100%" stop-color="#cc4400"/>
+          </linearGradient>
+          <linearGradient id="seaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#aa3300"/>
+            <stop offset="100%" stop-color="#220800"/>
+          </linearGradient>
+        </defs>
+        <!-- Sky -->
+        <rect width="520" height="400" fill="url(#skyGrad)"/>
+        <!-- Sun -->
+        <ellipse cx="260" cy="240" rx="55" ry="55" fill="url(#sunGrad)" opacity="0.9"/>
+        <!-- Sun rays -->
+        <g stroke="#ffaa00" stroke-width="1" opacity="0.3">
+          <line x1="260" y1="170" x2="260" y2="120"/>
+          <line x1="302" y1="182" x2="330" y2="152"/>
+          <line x1="328" y1="218" x2="370" y2="210"/>
+          <line x1="218" y1="182" x2="190" y2="152"/>
+          <line x1="192" y1="218" x2="150" y2="210"/>
+        </g>
+        <!-- Sea -->
+        <ellipse cx="260" cy="310" rx="290" ry="100" fill="url(#seaGrad)"/>
+        <rect x="0" y="295" width="520" height="105" fill="url(#seaGrad)"/>
+        <!-- Water reflections -->
+        <g fill="none" stroke="#ff6600" stroke-width="1.5" opacity="0.4">
+          <path d="M200 310 Q220 305 240 310 Q260 315 280 310 Q300 305 320 310"/>
+          <path d="M180 325 Q210 318 240 325 Q270 332 300 325 Q330 318 360 325"/>
+          <path d="M210 340 Q240 333 260 340 Q280 347 310 340"/>
+        </g>
+        <!-- Sun reflection on water -->
+        <ellipse cx="260" cy="310" rx="20" ry="60" fill="#ff8800" opacity="0.5"/>
+        <!-- Ship hull -->
+        <path d="M160 270 L170 290 Q200 305 260 308 Q320 305 350 290 L360 270 Z" fill="#0a0808"/>
+        <path d="M165 270 L175 265 L345 265 L355 270 Z" fill="#1a0a0a"/>
+        <!-- Mast -->
+        <rect x="256" y="160" width="8" height="110" fill="#1a1008"/>
+        <rect x="263" y="200" width="5" height="65" fill="#1a1008"/>
+        <!-- Sails -->
+        <path d="M264 165 Q310 185 310 220 L264 220 Z" fill="#2a1500" opacity="0.85"/>
+        <path d="M264 165 Q218 185 218 220 L264 220 Z" fill="#1a0d00" opacity="0.85"/>
+        <path d="M268 205 Q300 220 298 245 L268 245 Z" fill="#200f00" opacity="0.8"/>
+        <!-- Flag -->
+        <path d="M264 160 L264 145 L282 153 L264 160Z" fill="#8b0000"/>
+        <!-- Ropes -->
+        <g stroke="#2a1500" stroke-width="1.5" fill="none" opacity="0.7">
+          <line x1="264" y1="165" x2="170" y2="265"/>
+          <line x1="264" y1="165" x2="350" y2="265"/>
+        </g>
+        <!-- Atmospheric clouds -->
+        <g fill="#220800" opacity="0.5">
+          <ellipse cx="80" cy="80" rx="60" ry="25"/>
+          <ellipse cx="420" cy="60" rx="70" ry="20"/>
+          <ellipse cx="160" cy="50" rx="45" ry="18"/>
+        </g>
+      </svg>
+    </div>
+    <div class="story-content">
+      <div class="section-eyebrow">OUR STORY</div>
+      <h2 class="section-title story-title">BORN FROM LEGEND</h2>
+      <div class="title-ornament">
+        <svg viewBox="0 0 60 4" fill="none"><line x1="0" y1="2" x2="60" y2="2" stroke="#c94a1a" stroke-width="1"/></svg>
+      </div>
+      <p class="story-text">Akuma No Melt was created for dreamers, adventurers and fans of the Grand Line. We bring your favorite Devil Fruits to life through hand-poured candles made with passion. Light one, awaken your power.</p>
+      <a href="#" class="btn-primary story-btn">LEARN MORE ABOUT US</a>
+    </div>
+  </section>
 
-<img src="images/hero.jpg">
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer" id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg class="logo-icon" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="18" r="11" fill="none" stroke="#c94a1a" stroke-width="1.5"/>
+            <circle cx="16" cy="18" r="7" fill="none" stroke="#c94a1a" stroke-width="1"/>
+            <circle cx="16" cy="18" r="3.5" fill="#c94a1a"/>
+            <path d="M16 7 C16 7 13 2 16 0 C19 2 16 7 16 7Z" fill="#c94a1a"/>
+          </svg>
+          <span>AKUMA NO MELT</span>
+        </div>
+        <p class="footer-tagline">Akuma no Mi candles.<br>Unique scents. Legendary vibes.<br>Awaken your power.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.75a8.16 8.16 0 004.77 1.52V6.81a4.85 4.85 0 01-1-.12z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
 
-</div>
+      <div class="footer-col">
+        <h4>SHOP</h4>
+        <ul>
+          <li><a href="#">All Products</a></li>
+          <li><a href="#">Best Sellers</a></li>
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Gift Cards</a></li>
+        </ul>
+      </div>
 
-</section>
+      <div class="footer-col">
+        <h4>HELP</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">Care Instructions</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
 
-<section class="features">
+      <div class="footer-col footer-newsletter">
+        <h4>STAY IN THE LOOP</h4>
+        <p>Join our crew for exclusive drops, new scents and special offers.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email" class="newsletter-input"/>
+          <button class="newsletter-btn" aria-label="Subscribe">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
 
-<div>
-<h3>Handcrafted</h3>
-<p>Premium ingredients.</p>
-</div>
+    <div class="footer-bottom">
+      <p>© 2026 Akuma No Melt. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
 
-<div>
-<h3>Unique Scents</h3>
-<p>Inspired by Devil Fruits.</p>
-</div>
-
-<div>
-<h3>Natural Wax</h3>
-<p>Clean burning.</p>
-</div>
-
-<div>
-<h3>Perfect Gift</h3>
-<p>For anime fans.</p>
-</div>
-
-</section>
-
-<section class="collection">
-
-<h2>Choose Your Power</h2>
-
-<div class="products">
-
-<div class="card">
-<img src="images/gomu.jpg">
-<h3>Gomu Gomu No Mi</h3>
-<p>Berry Burst</p>
-<span>€34.99</span>
-</div>
-
-<div class="card">
-<img src="images/mera.jpg">
-<h3>Mera Mera No Mi</h3>
-<p>Spiced Orange</p>
-<span>€34.99</span>
-</div>
-
-<div class="card">
-<img src="images/yami.jpg">
-<h3>Yami Yami No Mi</h3>
-<p>Dark Amber</p>
-<span>€34.99</span>
-</div>
-
-<div class="card">
-<img src="images/ope.jpg">
-<h3>Ope Ope No Mi</h3>
-<p>White Musk</p>
-<span>€34.99</span>
-</div>
-
-</div>
-
-</section>
-
-<section class="story">
-
-<div class="story-image">
-<img src="images/ship.jpg">
-</div>
-
-<div class="story-text">
-
-<h2>Born From Legend</h2>
-
-<p>
-Akuma No Melt was created for dreamers,
-adventurers and collectors.
-
-Light one.
-Awaken your power.
-</p>
-
-</div>
-
-</section>
-
-<footer>
-
-<h3>AKUMA NO MELT</h3>
-
-<p>
-Unique scents.
-Legendary vibes.
-</p>
-
-</footer>
-
-<script src="js/script.js"></script>
-
+  <script src="js/main.js"></script>
 </body>
 </html>
