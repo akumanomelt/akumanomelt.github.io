@@ -129,7 +129,11 @@ img, svg { display: block; }
   white-space: nowrap;
   flex-shrink: 0;
 }
-.logo-icon { width: 28px; height: 28px; }
+.logo-icon{
+    width:60px;
+    height:60px;
+    object-fit:contain;
+}
 .nav-links {
   display: flex;
   gap: 32px;
