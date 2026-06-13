@@ -1,1 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Akuma No Melt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ── RESET & TOKENS ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --red:#c94a1a;
+  --red2:#a03010;
+  --cream:#e8d9bc;
+  --cream2:#c8b89a;
+  --muted:#8a7060;
+  --dark:#0c0608;
+  --dark2:#120a0a;
+  --dark3:#1a0c0c;
+  --gold:#b8892a;
+  --border:rgba(201,74,26,0.22);
+  --ff-display:'Cinzel',serif;
+  --ff-deco:'Cinzel Decorative',serif;
+  --ff-body:'EB Garamond',serif;
+  --ff-ui:'Inter',sans-serif;
+}
+body{background:var(--dark);color:var(--cream);font-family:var(--ff-body);overflow-x:hidden;line-height:1.7}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+ul{list-style:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
 
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:58px;
+  background:rgba(10,5,7,0.93);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;
+}
+.nav-inner{
+  width:100%;max-width:1280px;margin:0 auto;
+  padding:0 28px;
+  display:flex;align-items:center;gap:0;
+}
+.nav-logo{
+  display:flex;align-items:center;gap:9px;
+  font-family:var(--ff-display);font-size:12px;font-weight:700;
+  letter-spacing:0.08em;color:var(--red);white-space:nowrap;
+  margin-right:auto;
+}
+.nav-logo svg{width:26px;height:26px;flex-shrink:0}
+.nav-links{
+  display:flex;align-items:center;gap:36px;
+  margin:0 auto;
+}
+.nav-links a{
+  font-family:var(--ff-ui);font-size:10.5px;font-weight:500;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--cream2);transition:color .2s;
+  position:relative;padding-bottom:2px;
+}
+.nav-links a:hover{color:var(--cream)}
+.nav-links a.active{color:var(--cream)}
+.nav-links a.active::after{
+  content:'';position:absolute;bottom:-1px;left:0;right:0;
+  height:1.5px;background:var(--red);
+}
+.nav-icons{display:flex;align-items:center;gap:18px;margin-left:auto}
+.nav-icons button{color:var(--cream2);display:flex;transition:color .2s}
+.nav-icons button:hover{color:var(--cream)}
+.nav-icons svg{width:17px;height:17px}
+
+/* ── HERO ── */
+.hero{
+  position:relative;
+  height:100vh;min-height:600px;max-height:900px;
+  display:flex;align-items:center;
+  overflow:hidden;
+  padding-top:58px;
+}
+/* Dark atmospheric background */
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 55% 70% at 68% 50%, #3a0a08 0%, #1c0507 35%, #080305 75%, #050204 100%);
+}
+/* Red fabric/smoke texture on right */
+.hero-bg-texture{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 40% 60% at 72% 38%, rgba(120,15,10,0.55) 0%, transparent 65%),
+    radial-gradient(ellipse 25% 35% at 85% 65%, rgba(80,10,5,0.3) 0%, transparent 55%),
+    radial-gradient(ellipse 20% 25% at 90% 30%, rgba(60,8,5,0.25) 0%, transparent 50%);
+}
+/* Subtle vignette */
+.hero-vignette{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(5,2,4,0.7) 100%);
+  z-index:1;
+}
+.hero-content{
+  position:relative;z-index:3;
+  max-width:1280px;width:100%;margin:0 auto;
+  padding:0 60px;
+}
+.hero-title{
+  font-family:var(--ff-display);
+  font-size:clamp(52px,6.8vw,92px);
+  font-weight:900;
+  color:var(--cream);
+  letter-spacing:0.02em;
+  line-height:1;
+  margin-bottom:18px;
+}
+.hero-ornament{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:16px;
+  width:220px;
+}
+.hero-ornament line,.hero-ornament path{stroke:var(--red)}
+.hero-tagline{
+  font-family:var(--ff-ui);font-size:10.5px;font-weight:600;
+  letter-spacing:0.24em;text-transform:uppercase;
+  color:var(--cream);margin-bottom:14px;
+}
+.hero-body{
+  font-family:var(--ff-body);font-size:16px;font-weight:400;
+  color:var(--muted);line-height:1.85;
+  margin-bottom:30px;max-width:320px;
+}
+.btn{
+  display:inline-block;
+  font-family:var(--ff-ui);font-size:10px;font-weight:600;
+  letter-spacing:0.2em;text-transform:uppercase;
+  padding:13px 28px;
+  background:var(--red);color:var(--cream);
+  border:1px solid var(--red);
+  transition:background .25s,color .25s;
+}
+.btn:hover{background:transparent;color:var(--red)}
+.btn-outline{
+  background:transparent;color:var(--cream2);
+  border:1px solid rgba(232,217,188,0.3);
+  transition:border-color .2s,color .2s;
+}
+.btn-outline:hover{border-color:var(--red);color:var(--cream)}
+
+/* Hero candle image */
+.hero-img{
+  position:absolute;
+  right:4%;top:50%;transform:translateY(-52%);
+  z-index:2;
+  width:clamp(240px,36vw,500px);
+  pointer-events:none;
+}
+.hero-img-inner{
+  position:relative;
+  width:100%;
+  padding-bottom:110%;
+}
+/* The candle rendered in CSS/SVG - photorealistic style */
+.hero-candle-art{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-candle-art svg{
+  width:90%;height:auto;
+  filter:
+    drop-shadow(0 0 60px rgba(160,20,10,0.6))
+    drop-shadow(0 0 120px rgba(120,15,5,0.35))
+    drop-shadow(0 20px 40px rgba(0,0,0,0.8));
+}
+
+/* ── FEATURES ── */
+.features{
+  background:#150a0a;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.feature{
+  padding:36px 20px;
+  text-align:center;
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.feature:last-child{border-right:none}
+.feature-icon{width:38px;height:38px;margin-bottom:6px}
+.feature-icon svg{width:100%;height:100%}
+.feature h4{
+  font-family:var(--ff-ui);font-size:9.5px;font-weight:600;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--cream);
+}
+.feature p{
+  font-family:var(--ff-body);font-size:14px;
+  color:var(--muted);line-height:1.6;max-width:150px;
+}
+
+/* ── COLLECTION ── */
+.collection{
+  background:var(--dark);
+  padding:80px 40px 70px;
+  text-align:center;
+}
+.eyebrow{
+  font-family:var(--ff-ui);font-size:9.5px;font-weight:500;
+  letter-spacing:0.28em;text-transform:uppercase;
+  color:var(--red);margin-bottom:8px;
+}
+.section-title{
+  font-family:var(--ff-display);
+  font-size:clamp(26px,3.5vw,40px);
+  font-weight:700;letter-spacing:0.14em;
+  color:var(--cream);line-height:1.1;
+}
+.ornament{
+  width:70px;margin:14px auto 0;
+  display:block;
+}
+.product-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  max-width:1200px;margin:46px auto 0;
+}
+.product-card{
+  background:var(--dark2);
+  border:1px solid rgba(201,74,26,0.15);
+  overflow:hidden;
+  transition:border-color .25s,transform .25s;
+  cursor:pointer;
+}
+.product-card:hover{
+  border-color:rgba(201,74,26,0.45);
+  transform:translateY(-5px);
+}
+.product-img{
+  width:100%;
+  aspect-ratio:1/1;
+  background:var(--dark3);
+  position:relative;
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+/* Atmospheric dark bg for product images */
+.product-img::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 70% at 50% 40%, rgba(40,10,8,0.8) 0%, #0e0608 100%);
+}
+.product-img svg{
+  position:relative;z-index:1;
+  width:75%;height:auto;
+}
+.product-info{
+  padding:16px 18px 20px;
+  text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:5px;
+}
+.product-name{
+  font-family:var(--ff-display);font-size:11px;font-weight:600;
+  letter-spacing:0.1em;color:var(--cream);
+}
+.product-scent{
+  font-family:var(--ff-body);font-size:14px;
+  font-style:italic;color:var(--muted);
+}
+.product-price{
+  font-family:var(--ff-ui);font-size:14px;
+  color:var(--cream);margin:3px 0 10px;
+}
+.product-btn{
+  width:100%;
+  font-family:var(--ff-ui);font-size:9px;font-weight:600;
+  letter-spacing:0.18em;text-transform:uppercase;
+  padding:9px 16px;
+  color:var(--cream2);
+  border:1px solid rgba(232,217,188,0.25);
+  transition:border-color .2s,color .2s;
+}
+.product-btn:hover{border-color:var(--red);color:var(--cream)}
+.collection-cta{margin-top:44px}
+
+/* ── STORY ── */
+.story{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:440px;
+  background:var(--dark2);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.story-left{
+  overflow:hidden;position:relative;
+  background:#080305;
+}
+.story-left svg{
+  width:100%;height:100%;min-height:400px;
+  object-fit:cover;
+}
+.story-right{
+  padding:72px 56px;
+  display:flex;flex-direction:column;justify-content:center;
+  background:linear-gradient(135deg,#110708 0%,#0a0507 100%);
+}
+.story-line{
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:14px;
+}
+.story-line span{
+  font-family:var(--ff-ui);font-size:9.5px;font-weight:500;
+  letter-spacing:0.28em;text-transform:uppercase;
+  color:var(--red);white-space:nowrap;
+}
+.story-line::after{
+  content:'';flex:1;height:1px;background:var(--red);opacity:0.4;
+}
+.story-title{
+  font-family:var(--ff-deco);
+  font-size:clamp(26px,3vw,38px);
+  font-weight:700;letter-spacing:0.1em;
+  color:var(--cream);line-height:1.1;
+  margin-bottom:20px;
+}
+.story-body{
+  font-family:var(--ff-body);font-size:16px;
+  color:var(--muted);line-height:1.9;
+  max-width:420px;margin-bottom:28px;
+}
+
+/* ── FOOTER ── */
+footer{
+  background:#0d0608;
+  border-top:1px solid var(--border);
+}
+.footer-main{
+  max-width:1280px;margin:0 auto;
+  padding:60px 40px 44px;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 2fr;
+  gap:48px;
+}
+.footer-brand-logo{
+  display:flex;align-items:center;gap:9px;
+  font-family:var(--ff-display);font-size:11px;font-weight:700;
+  letter-spacing:0.1em;color:var(--red);
+  margin-bottom:14px;
+}
+.footer-brand-logo svg{width:24px;height:24px}
+.footer-tagline{
+  font-family:var(--ff-body);font-size:14px;
+  color:var(--muted);line-height:1.8;margin-bottom:22px;
+}
+.socials{display:flex;gap:14px}
+.socials a{
+  width:30px;height:30px;
+  color:var(--muted);
+  display:flex;align-items:center;justify-content:center;
+  transition:color .2s;
+}
+.socials a:hover{color:var(--red)}
+.socials svg{width:17px;height:17px}
+.footer-col h5{
+  font-family:var(--ff-ui);font-size:9.5px;font-weight:600;
+  letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--cream);margin-bottom:18px;
+}
+.footer-col ul{display:flex;flex-direction:column;gap:11px}
+.footer-col ul a{
+  font-family:var(--ff-body);font-size:15px;
+  color:var(--muted);transition:color .2s;
+}
+.footer-col ul a:hover{color:var(--cream)}
+.footer-newsletter p{
+  font-family:var(--ff-body);font-size:14px;
+  color:var(--muted);line-height:1.7;margin-bottom:16px;
+}
+.newsletter-row{
+  display:flex;
+  border:1px solid rgba(232,217,188,0.18);
+}
+.newsletter-row input{
+  flex:1;min-width:0;
+  background:transparent;border:none;outline:none;
+  padding:10px 14px;
+  font-family:var(--ff-body);font-size:14px;
+  color:var(--cream);
+}
+.newsletter-row input::placeholder{color:var(--muted)}
+.newsletter-row button{
+  background:var(--red);border:none;
+  padding:10px 14px;
+  color:#fff;display:flex;align-items:center;
+  flex-shrink:0;transition:background .2s;
+}
+.newsletter-row button:hover{background:var(--red2)}
+.newsletter-row button svg{width:15px;height:15px}
+.footer-bottom{
+  max-width:1280px;margin:0 auto;
+  padding:16px 40px;
+  border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.footer-bottom p{
+  font-family:var(--ff-body);font-size:13px;color:var(--muted);
+}
+.footer-legal{display:flex;gap:22px}
+.footer-legal a{
+  font-family:var(--ff-body);font-size:13px;
+  color:var(--muted);transition:color .2s;
+}
+.footer-legal a:hover{color:var(--cream)}
+
+/* ── MOBILE ── */
+.hamburger{display:none;flex-direction:column;gap:5px;width:20px;margin-left:16px}
+.hamburger span{display:block;height:1.5px;background:var(--muted)}
+.mobile-nav{display:none;flex-direction:column;background:var(--dark);border-top:1px solid var(--border)}
+.mobile-nav a{
+  padding:13px 28px;border-bottom:1px solid var(--border);
+  font-family:var(--ff-ui);font-size:11px;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--muted);
+  transition:color .2s;
+}
+.mobile-nav a:hover{color:var(--red)}
+.mobile-nav.open{display:flex}
+
+@media(max-width:1024px){
+  .product-grid{grid-template-columns:repeat(2,1fr)}
+  .story{grid-template-columns:1fr}
+  .story-left{min-height:300px}
+  .footer-main{grid-template-columns:1fr 1fr;gap:32px}
+  .hero-img{width:44vw;right:2%}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero-content{padding:0 24px}
+  .hero-img{width:52vw;right:-1%;opacity:0.85}
+  .hero-title{font-size:clamp(36px,9vw,54px)}
+  .features{grid-template-columns:1fr 1fr}
+  .feature{border-bottom:1px solid var(--border)}
+  .feature:nth-child(2n){border-right:none}
+  .collection{padding:60px 20px}
+  .product-grid{gap:12px}
+  .story-right{padding:44px 28px}
+  .footer-main{grid-template-columns:1fr;gap:28px;padding:44px 24px 32px}
+  .footer-bottom{flex-direction:column;gap:10px;text-align:center;padding:14px 24px}
+}
+@media(max-width:480px){
+  .hero-img{display:none}
+  .product-grid{grid-template-columns:1fr;max-width:300px;margin-left:auto;margin-right:auto}
+}
+@media(prefers-reduced-motion:reduce){
+  .flame,.flame2{animation:none}
+}
+
+/* Flame flicker */
+.flame{animation:flicker 1.8s ease-in-out infinite alternate;transform-origin:50% 80%}
+.flame2{animation:flicker2 2.2s ease-in-out infinite alternate;transform-origin:50% 80%}
+@keyframes flicker{
+  0%{transform:scaleX(1) scaleY(1) rotate(-0.5deg);opacity:1}
+  40%{transform:scaleX(0.94) scaleY(1.06) rotate(0.8deg);opacity:.95}
+  100%{transform:scaleX(1.04) scaleY(.96) rotate(-0.3deg);opacity:.9}
+}
+@keyframes flicker2{
+  0%{transform:scaleX(1.02) scaleY(.98) rotate(0.4deg);opacity:.92}
+  50%{transform:scaleX(.96) scaleY(1.04) rotate(-0.6deg);opacity:1}
+  100%{transform:scaleX(1) scaleY(1) rotate(0.2deg);opacity:.94}
+}
+
+/* scroll reveal */
+.sr{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.sr.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <!-- Devil fruit logo icon -->
+      <svg viewBox="0 0 28 28" fill="none">
+        <circle cx="14" cy="16" r="10" stroke="#c94a1a" stroke-width="1.4"/>
+        <circle cx="14" cy="16" r="6.5" stroke="#c94a1a" stroke-width="1"/>
+        <circle cx="14" cy="16" r="3" fill="#c94a1a"/>
+        <path d="M14 6C14 6 11.5 1.5 14 0C16.5 1.5 14 6 14 6Z" fill="#c94a1a"/>
+        <circle cx="9" cy="12" r="1.5" fill="none" stroke="#c94a1a" stroke-width="0.8"/>
+        <circle cx="19" cy="12" r="1.5" fill="none" stroke="#c94a1a" stroke-width="0.8"/>
+        <circle cx="14" cy="22" r="1.5" fill="none" stroke="#c94a1a" stroke-width="0.8"/>
+      </svg>
+      Akuma No Melt
+    </a>
+    <div class="nav-links">
+      <a href="#" class="active">Home</a>
+      <a href="#collection">Shop</a>
+      <a href="#story">About</a>
+      <a href="#collection">Collections</a>
+      <a href="#footer">Contact</a>
+    </div>
+    <div class="nav-icons">
+      <button aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7.5"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <button aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2 3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></button>
+      <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#">Home</a><a href="#collection">Shop</a>
+    <a href="#story">About</a><a href="#collection">Collections</a>
+    <a href="#footer">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-bg-texture"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">Akuma No Melt</h1>
+    <!-- ornament divider -->
+    <div class="hero-ornament">
+      <svg width="220" height="18" viewBox="0 0 220 18" fill="none">
+        <line x1="0" y1="9" x2="85" y2="9" stroke="#c94a1a" stroke-width="0.8"/>
+        <circle cx="110" cy="9" r="7" fill="none" stroke="#c94a1a" stroke-width="1.2"/>
+        <circle cx="110" cy="9" r="3" fill="#c94a1a"/>
+        <!-- tiny swirls -->
+        <path d="M95 9 Q100 4 105 9" stroke="#c94a1a" stroke-width="0.8" fill="none"/>
+        <path d="M115 9 Q120 4 125 9" stroke="#c94a1a" stroke-width="0.8" fill="none"/>
+        <line x1="135" y1="9" x2="220" y2="9" stroke="#c94a1a" stroke-width="0.8"/>
+      </svg>
+    </div>
+    <p class="hero-tagline">Exotic Power. Scented to Perfection.</p>
+    <p class="hero-body">Handcrafted Akuma no Mi candles inspired by<br>legendary Devil Fruits. Each candle holds a<br>unique scent. Which power will you awaken?</p>
+    <a href="#collection" class="btn">Shop the Collection</a>
+  </div>
+
+  <!-- Hero candle - photorealistic Gomu Gomu red -->
+  <div class="hero-img">
+    <div class="hero-img-inner">
+      <div class="hero-candle-art">
+        <svg viewBox="0 0 340 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Main fruit radial - deep crimson with light source top-left -->
+            <radialGradient id="hFruit" cx="32%" cy="22%" r="75%">
+              <stop offset="0%" stop-color="#d41a1a"/>
+              <stop offset="18%" stop-color="#b80e0e"/>
+              <stop offset="45%" stop-color="#8a0505"/>
+              <stop offset="75%" stop-color="#5c0303"/>
+              <stop offset="100%" stop-color="#2e0101"/>
+            </radialGradient>
+            <!-- Bump shading -->
+            <radialGradient id="hBump" cx="30%" cy="25%" r="65%">
+              <stop offset="0%" stop-color="#e82020"/>
+              <stop offset="40%" stop-color="#aa0a0a"/>
+              <stop offset="100%" stop-color="#500202"/>
+            </radialGradient>
+            <radialGradient id="hBumpSide" cx="35%" cy="30%" r="60%">
+              <stop offset="0%" stop-color="#c01515"/>
+              <stop offset="50%" stop-color="#800505"/>
+              <stop offset="100%" stop-color="#3a0101"/>
+            </radialGradient>
+            <!-- Highlight on fruit surface -->
+            <radialGradient id="hHighlight" cx="28%" cy="20%" r="40%">
+              <stop offset="0%" stop-color="rgba(255,180,160,0.18)"/>
+              <stop offset="100%" stop-color="rgba(255,100,80,0)"/>
+            </radialGradient>
+            <!-- Gold handle gradient -->
+            <linearGradient id="hHandle" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#d4a832"/>
+              <stop offset="35%" stop-color="#a07820"/>
+              <stop offset="65%" stop-color="#c09028"/>
+              <stop offset="100%" stop-color="#7a5510"/>
+            </linearGradient>
+            <!-- Plate -->
+            <radialGradient id="hPlate" cx="50%" cy="30%">
+              <stop offset="0%" stop-color="#b89030"/>
+              <stop offset="50%" stop-color="#8a6818"/>
+              <stop offset="100%" stop-color="#3a2808"/>
+            </radialGradient>
+            <!-- Shadow under fruit -->
+            <radialGradient id="hShadow" cx="50%" cy="50%">
+              <stop offset="0%" stop-color="rgba(0,0,0,0.7)"/>
+              <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+            </radialGradient>
+            <filter id="hGlow">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+            <filter id="fGlow">
+              <feGaussianBlur stdDeviation="4" result="b"/>
+              <feComposite in="SourceGraphic" in2="b" operator="over"/>
+            </filter>
+          </defs>
+
+          <!-- Plate / base -->
+          <ellipse cx="170" cy="352" rx="88" ry="14" fill="rgba(0,0,0,0.5)"/>
+          <ellipse cx="170" cy="348" rx="82" ry="11" fill="url(#hPlate)"/>
+          <ellipse cx="170" cy="345" rx="80" ry="8" fill="#c09a30" opacity="0.6"/>
+          <ellipse cx="170" cy="342" rx="72" ry="5" fill="#d4b040" opacity="0.35"/>
+
+          <!-- Main fruit body -->
+          <ellipse cx="170" cy="230" rx="118" ry="122" fill="url(#hFruit)"/>
+
+          <!-- Bump pattern - spiral bumps covering the sphere -->
+          <!-- Top center -->
+          <ellipse cx="170" cy="122" rx="17" ry="17" fill="url(#hBump)" opacity="0.92"/>
+          <path d="M163 118 Q170 112 177 118 Q170 124 163 118Z" fill="rgba(255,150,120,0.12)"/>
+
+          <!-- Ring 1 around top -->
+          <ellipse cx="136" cy="134" rx="16" ry="16" fill="url(#hBumpSide)" opacity="0.9"/>
+          <ellipse cx="204" cy="134" rx="16" ry="16" fill="url(#hBumpSide)" opacity="0.88"/>
+          <ellipse cx="113" cy="158" rx="15" ry="15" fill="url(#hBumpSide)" opacity="0.88"/>
+          <ellipse cx="170" cy="150" rx="16" ry="16" fill="url(#hBump)" opacity="0.9"/>
+          <ellipse cx="227" cy="158" rx="15" ry="15" fill="url(#hBumpSide)" opacity="0.85"/>
+
+          <!-- Ring 2 mid-upper -->
+          <ellipse cx="97" cy="186" rx="15" ry="15" fill="url(#hBumpSide)" opacity="0.87"/>
+          <ellipse cx="137" cy="175" rx="16" ry="16" fill="url(#hBump)" opacity="0.9"/>
+          <ellipse cx="170" cy="178" rx="17" ry="17" fill="url(#hBump)" opacity="0.92"/>
+          <ellipse cx="203" cy="175" rx="16" ry="16" fill="url(#hBumpSide)" opacity="0.88"/>
+          <ellipse cx="243" cy="186" rx="15" ry="15" fill="url(#hBumpSide)" opacity="0.84"/>
+
+          <!-- Ring 3 equator -->
+          <ellipse cx="56" cy="222" rx="14" ry="14" fill="url(#hBumpSide)" opacity="0.8"/>
+          <ellipse cx="88" cy="212" rx="15" ry="15" fill="url(#hBumpSide)" opacity="0.85"/>
+          <ellipse cx="122" cy="205" rx="16" ry="16" fill="url(#hBump)" opacity="0.9"/>
+          <ellipse cx="157" cy="202" rx="17" ry="17" fill="url(#hBump)" opacity="0.93"/>
+          <ellipse cx="194" cy="205" rx="16" ry="16" fill="url(#hBumpSide)" opacity="0.88"/>
+          <ellipse cx="228" cy="212" rx="15" ry="15" fill="url(#hBumpSide)" opacity="0.84"/>
+          <ellipse cx="260" cy="222" rx="14" ry="14" fill="url(#hBumpSide)" opacity="0.78"/>
+
+          <!-- Ring 4 lower-mid -->
+          <ellipse cx="70" cy="254" rx="14" ry="13" fill="url(#hBumpSide)" opacity="0.82"/>
+          <ellipse cx="104" cy="242" rx="15" ry="15" fill="url(#hBumpSide)" opacity="0.86"/>
+          <ellipse cx="138" cy="235" rx="16" ry="16" fill="url(#hBump)" opacity="0.88"/>
+          <ellipse cx="172" cy="232" rx="17" ry="17" fill="url(#hBump)" opacity="0.9"/>
+          <ellipse cx="206" cy="235" rx="16" ry="16" fill="url(#hBumpSide)" opacity="0.85"/>
+          <ellipse cx="240" cy="242" rx="15" ry="14" fill="url(#hBumpSide)" opacity="0.8"/>
+          <ellipse cx="272" cy="254" rx="13" ry="12" fill="url(#hBumpSide)" opacity="0.74"/>
+
+          <!-- Ring 5 lower -->
+          <ellipse cx="92" cy="282" rx="14" ry="13" fill="url(#hBumpSide)" opacity="0.8"/>
+          <ellipse cx="124" cy="270" rx="15" ry="15" fill="url(#hBumpSide)" opacity="0.84"/>
+          <ellipse cx="157" cy="265" rx="16" ry="15" fill="url(#hBump)" opacity="0.86"/>
+          <ellipse cx="190" cy="268" rx="15" ry="15" fill="url(#hBumpSide)" opacity="0.82"/>
+          <ellipse cx="222" cy="278" rx="14" ry="13" fill="url(#hBumpSide)" opacity="0.76"/>
+
+          <!-- Ring 6 bottom -->
+          <ellipse cx="120" cy="305" rx="13" ry="12" fill="url(#hBumpSide)" opacity="0.75"/>
+          <ellipse cx="152" cy="296" rx="14" ry="13" fill="url(#hBumpSide)" opacity="0.78"/>
+          <ellipse cx="184" cy="296" rx="14" ry="13" fill="url(#hBumpSide)" opacity="0.74"/>
+          <ellipse cx="215" cy="304" rx="12" ry="11" fill="url(#hBumpSide)" opacity="0.68"/>
+
+          <!-- Spiral swirl lines on bumps (subtle) -->
+          <g fill="none" stroke="rgba(80,0,0,0.5)" stroke-width="0.8">
+            <circle cx="170" cy="122" r="10"/>
+            <circle cx="170" cy="178" r="11"/>
+            <circle cx="157" cy="202" r="11"/>
+            <circle cx="172" cy="232" r="12"/>
+          </g>
+
+          <!-- Overall highlight (light source top-left) -->
+          <ellipse cx="120" cy="165" rx="55" ry="70" fill="url(#hHighlight)"/>
+          <!-- Edge darkening -->
+          <ellipse cx="170" cy="230" rx="118" ry="122" fill="none" stroke="rgba(0,0,0,0.4)" stroke-width="8"/>
+
+          <!-- Ornate handle (twisted gold) -->
+          <!-- Left curl -->
+          <path d="M138 108 Q118 88 108 70 Q100 52 108 40 Q116 30 124 38 Q130 46 122 54 Q114 60 118 70"
+            stroke="url(#hHandle)" stroke-width="6" stroke-linecap="round" fill="none"/>
+          <path d="M138 108 Q118 88 108 70 Q100 52 108 40 Q116 30 124 38 Q130 46 122 54 Q114 60 118 70"
+            stroke="rgba(220,180,80,0.3)" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <!-- Right curl -->
+          <path d="M202 108 Q222 88 232 70 Q240 52 232 40 Q224 30 216 38 Q210 46 218 54 Q226 60 222 70"
+            stroke="url(#hHandle)" stroke-width="6" stroke-linecap="round" fill="none"/>
+          <path d="M202 108 Q222 88 232 70 Q240 52 232 40 Q224 30 216 38 Q210 46 218 54 Q226 60 222 70"
+            stroke="rgba(220,180,80,0.3)" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+          <!-- Wick -->
+          <path d="M167 106 Q168 96 170 90 Q172 96 173 106" stroke="#1a0c08" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+          <!-- Flame -->
+          <g class="flame" filter="url(#fGlow)">
+            <!-- outer glow -->
+            <ellipse cx="170" cy="74" rx="10" ry="18" fill="rgba(255,120,20,0.25)"/>
+            <!-- main flame body -->
+            <path d="M162 84 Q165 60 170 52 Q175 60 178 84 Q175 90 170 92 Q165 90 162 84Z" fill="#ffaa22"/>
+            <!-- inner bright -->
+            <path d="M166 82 Q168 65 170 58 Q172 65 174 82 Q172 87 170 88 Q168 87 166 82Z" fill="#ffdd55"/>
+            <!-- hottest center -->
+            <ellipse cx="170" cy="72" rx="4" ry="8" fill="#fff9e0" opacity="0.85"/>
+            <!-- flame tip -->
+            <path d="M168 53 Q170 46 172 53 Q171 56 170 57 Q169 56 168 53Z" fill="rgba(255,240,180,0.7)"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="feature sr">
+    <div class="feature-icon">
+      <svg viewBox="0 0 40 40" fill="none" stroke="#c94a1a" stroke-width="1.3">
+        <path d="M20 10 C20 10 13 6 13 12 C13 17 17 18 20 24 C23 18 27 17 27 12 C27 6 20 10 20 10Z"/>
+        <path d="M11 30 Q20 24 29 30"/>
+        <path d="M8 36 L32 36"/>
+        <path d="M10 33 Q20 28 30 33" opacity="0.5"/>
+      </svg>
+    </div>
+    <h4>Handcrafted</h4>
+    <p>Made with care using premium ingredients.</p>
+  </div>
+  <div class="feature sr">
+    <div class="feature-icon">
+      <svg viewBox="0 0 40 40" fill="none" stroke="#c94a1a" stroke-width="1.3">
+        <path d="M20 8 C18 12 11 16 11 22 C11 28 15 32 20 34 C25 32 29 28 29 22 C29 16 22 12 20 8Z"/>
+        <path d="M15 24 C16 28 18 31 20 32 C22 31 24 28 25 24" opacity="0.6"/>
+        <circle cx="20" cy="20" r="3" fill="none"/>
+      </svg>
+    </div>
+    <h4>Unique Scents</h4>
+    <p>Each Devil Fruit has a powerful, unique aroma.</p>
+  </div>
+  <div class="feature sr">
+    <div class="feature-icon">
+      <svg viewBox="0 0 40 40" fill="none" stroke="#c94a1a" stroke-width="1.3">
+        <path d="M20 10 C26 10 31 15 31 21 C31 28 26 33 20 33 C14 33 9 28 9 21 C9 15 14 10 20 10Z"/>
+        <path d="M14 22 L18 26 L26 18" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <h4>Natural Wax</h4>
+    <p>Eco-friendly soy wax for a clean, long-lasting burn.</p>
+  </div>
+  <div class="feature sr">
+    <div class="feature-icon">
+      <svg viewBox="0 0 40 40" fill="none" stroke="#c94a1a" stroke-width="1.3">
+        <rect x="9" y="16" width="22" height="17" rx="1.5"/>
+        <path d="M9 22 L31 22"/>
+        <path d="M20 10 L20 16"/>
+        <path d="M14 10 Q20 6 26 10"/>
+        <path d="M14 16 Q20 20 26 16"/>
+      </svg>
+    </div>
+    <h4>Perfect Gift</h4>
+    <p>Ideal for anime lovers and candle collectors.</p>
+  </div>
+</section>
+
+<!-- COLLECTION -->
+<section class="collection" id="collection">
+  <p class="eyebrow sr">Our Collection</p>
+  <h2 class="section-title sr">Choose Your Power</h2>
+  <svg class="ornament sr" viewBox="0 0 70 12" fill="none">
+    <line x1="0" y1="6" x2="24" y2="6" stroke="#c94a1a" stroke-width="0.8"/>
+    <circle cx="35" cy="6" r="4" fill="none" stroke="#c94a1a" stroke-width="1.2"/>
+    <circle cx="35" cy="6" r="1.5" fill="#c94a1a"/>
+    <line x1="46" y1="6" x2="70" y2="6" stroke="#c94a1a" stroke-width="0.8"/>
+  </svg>
+
+  <div class="product-grid">
+
+    <!-- GOMU GOMU - Red -->
+    <div class="product-card sr">
+      <div class="product-img">
+        <svg viewBox="0 0 200 210" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="g1" cx="32%" cy="22%" r="72%">
+              <stop offset="0%" stop-color="#d41818"/><stop offset="20%" stop-color="#aa0a0a"/>
+              <stop offset="55%" stop-color="#7a0303"/><stop offset="100%" stop-color="#280101"/>
+            </radialGradient>
+            <radialGradient id="g1b" cx="30%" cy="25%" r="65%">
+              <stop offset="0%" stop-color="#e02020"/><stop offset="100%" stop-color="#500101"/>
+            </radialGradient>
+            <radialGradient id="g1p" cx="50%" cy="25%">
+              <stop offset="0%" stop-color="#c09030"/><stop offset="100%" stop-color="#3a2808"/>
+            </radialGradient>
+            <linearGradient id="g1h" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#d4a832"/><stop offset="50%" stop-color="#906015"/><stop offset="100%" stop-color="#c08820"/>
+            </linearGradient>
+            <filter id="ff1"><feGaussianBlur stdDeviation="2.5" result="b"/><feComposite in="SourceGraphic" in2="b" operator="over"/></filter>
+          </defs>
+          <!-- plate -->
+          <ellipse cx="100" cy="197" rx="60" ry="9" fill="url(#g1p)"/>
+          <ellipse cx="100" cy="194" rx="57" ry="6" fill="#d4a832" opacity="0.4"/>
+          <!-- body -->
+          <ellipse cx="100" cy="138" rx="80" ry="82" fill="url(#g1)"/>
+          <!-- bumps -->
+          <ellipse cx="100" cy="74" rx="11" ry="11" fill="url(#g1b)" opacity="0.92"/>
+          <ellipse cx="75" cy="85" rx="10" ry="10" fill="url(#g1b)" opacity="0.88"/>
+          <ellipse cx="125" cy="85" rx="10" ry="10" fill="url(#g1b)" opacity="0.87"/>
+          <ellipse cx="58" cy="106" rx="10" ry="10" fill="url(#g1b)" opacity="0.85"/>
+          <ellipse cx="100" cy="97" rx="11" ry="11" fill="url(#g1b)" opacity="0.9"/>
+          <ellipse cx="142" cy="106" rx="10" ry="10" fill="url(#g1b)" opacity="0.84"/>
+          <ellipse cx="50" cy="130" rx="9" ry="9" fill="url(#g1b)" opacity="0.82"/>
+          <ellipse cx="80" cy="120" rx="11" ry="11" fill="url(#g1b)" opacity="0.88"/>
+          <ellipse cx="110" cy="118" rx="12" ry="12" fill="url(#g1b)" opacity="0.9"/>
+          <ellipse cx="140" cy="122" rx="10" ry="10" fill="url(#g1b)" opacity="0.85"/>
+          <ellipse cx="162" cy="136" rx="9" ry="8" fill="url(#g1b)" opacity="0.78"/>
+          <ellipse cx="55" cy="155" rx="9" ry="9" fill="url(#g1b)" opacity="0.8"/>
+          <ellipse cx="83" cy="146" rx="10" ry="10" fill="url(#g1b)" opacity="0.85"/>
+          <ellipse cx="112" cy="144" rx="11" ry="11" fill="url(#g1b)" opacity="0.87"/>
+          <ellipse cx="140" cy="148" rx="10" ry="9" fill="url(#g1b)" opacity="0.82"/>
+          <ellipse cx="162" cy="160" rx="8" ry="8" fill="url(#g1b)" opacity="0.74"/>
+          <ellipse cx="70" cy="174" rx="9" ry="8" fill="url(#g1b)" opacity="0.76"/>
+          <ellipse cx="98" cy="168" rx="10" ry="10" fill="url(#g1b)" opacity="0.8"/>
+          <ellipse cx="126" cy="170" rx="9" ry="9" fill="url(#g1b)" opacity="0.74"/>
+          <!-- highlight -->
+          <ellipse cx="72" cy="108" rx="32" ry="42" fill="rgba(255,150,130,0.08)" transform="rotate(-15 72 108)"/>
+          <!-- handle left -->
+          <path d="M82 68 Q66 52 58 38 Q52 24 60 16 Q68 10 74 20 Q78 30 70 36" stroke="url(#g1h)" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+          <!-- handle right -->
+          <path d="M118 68 Q134 52 142 38 Q148 24 140 16 Q132 10 126 20 Q122 30 130 36" stroke="url(#g1h)" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+          <!-- wick -->
+          <path d="M97 66 Q98 58 100 53 Q102 58 103 66" stroke="#1a0c08" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <!-- flame -->
+          <g class="flame2" filter="url(#ff1)">
+            <ellipse cx="100" cy="42" rx="7" ry="13" fill="rgba(255,120,20,0.2)"/>
+            <path d="M94 50 Q96 36 100 30 Q104 36 106 50 Q104 55 100 56 Q96 55 94 50Z" fill="#ffaa22"/>
+            <path d="M97 48 Q98 38 100 33 Q102 38 103 48 Q102 52 100 53 Q98 52 97 48Z" fill="#ffdd55"/>
+            <ellipse cx="100" cy="41" rx="3" ry="6" fill="rgba(255,248,200,0.8)"/>
+          </g>
+        </svg>
+      </div>
+      <div class="product-info">
+        <p class="product-name">Gomu Gomu No Mi</p>
+        <p class="product-scent">Berry Burst</p>
+        <p class="product-price">€34.99</p>
+        <button class="product-btn">View Product</button>
+      </div>
+    </div>
+
+    <!-- MERA MERA - Orange -->
+    <div class="product-card sr">
+      <div class="product-img">
+        <svg viewBox="0 0 200 210" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="g2" cx="32%" cy="22%" r="72%">
+              <stop offset="0%" stop-color="#ff9922"/><stop offset="22%" stop-color="#d46810"/>
+              <stop offset="55%" stop-color="#9a3e05"/><stop offset="100%" stop-color="#3a1202"/>
+            </radialGradient>
+            <radialGradient id="g2b" cx="30%" cy="25%" r="65%">
+              <stop offset="0%" stop-color="#ffaa30"/><stop offset="100%" stop-color="#7a2e02"/>
+            </radialGradient>
+            <radialGradient id="g2p" cx="50%" cy="25%">
+              <stop offset="0%" stop-color="#c09030"/><stop offset="100%" stop-color="#3a2808"/>
+            </radialGradient>
+            <linearGradient id="g2h" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#d4a832"/><stop offset="50%" stop-color="#906015"/><stop offset="100%" stop-color="#c08820"/>
+            </linearGradient>
+            <filter id="ff2"><feGaussianBlur stdDeviation="2.5" result="b"/><feComposite in="SourceGraphic" in2="b" operator="over"/></filter>
+          </defs>
+          <ellipse cx="100" cy="197" rx="60" ry="9" fill="url(#g2p)"/>
+          <ellipse cx="100" cy="194" rx="57" ry="6" fill="#d4a832" opacity="0.4"/>
+          <ellipse cx="100" cy="138" rx="80" ry="82" fill="url(#g2)"/>
+          <ellipse cx="100" cy="74" rx="11" ry="11" fill="url(#g2b)" opacity="0.92"/>
+          <ellipse cx="75" cy="85" rx="10" ry="10" fill="url(#g2b)" opacity="0.88"/>
+          <ellipse cx="125" cy="85" rx="10" ry="10" fill="url(#g2b)" opacity="0.87"/>
+          <ellipse cx="58" cy="106" rx="10" ry="10" fill="url(#g2b)" opacity="0.85"/>
+          <ellipse cx="100" cy="97" rx="11" ry="11" fill="url(#g2b)" opacity="0.9"/>
+          <ellipse cx="142" cy="106" rx="10" ry="10" fill="url(#g2b)" opacity="0.84"/>
+          <ellipse cx="50" cy="130" rx="9" ry="9" fill="url(#g2b)" opacity="0.82"/>
+          <ellipse cx="80" cy="120" rx="11" ry="11" fill="url(#g2b)" opacity="0.88"/>
+          <ellipse cx="110" cy="118" rx="12" ry="12" fill="url(#g2b)" opacity="0.9"/>
+          <ellipse cx="140" cy="122" rx="10" ry="10" fill="url(#g2b)" opacity="0.85"/>
+          <ellipse cx="162" cy="136" rx="9" ry="8" fill="url(#g2b)" opacity="0.78"/>
+          <ellipse cx="55" cy="155" rx="9" ry="9" fill="url(#g2b)" opacity="0.8"/>
+          <ellipse cx="83" cy="146" rx="10" ry="10" fill="url(#g2b)" opacity="0.85"/>
+          <ellipse cx="112" cy="144" rx="11" ry="11" fill="url(#g2b)" opacity="0.87"/>
+          <ellipse cx="140" cy="148" rx="10" ry="9" fill="url(#g2b)" opacity="0.82"/>
+          <ellipse cx="70" cy="174" rx="9" ry="8" fill="url(#g2b)" opacity="0.76"/>
+          <ellipse cx="98" cy="168" rx="10" ry="10" fill="url(#g2b)" opacity="0.8"/>
+          <ellipse cx="126" cy="170" rx="9" ry="9" fill="url(#g2b)" opacity="0.74"/>
+          <ellipse cx="72" cy="108" rx="32" ry="42" fill="rgba(255,200,150,0.08)" transform="rotate(-15 72 108)"/>
+          <path d="M82 68 Q66 52 58 38 Q52 24 60 16 Q68 10 74 20 Q78 30 70 36" stroke="url(#g2h)" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+          <path d="M118 68 Q134 52 142 38 Q148 24 140 16 Q132 10 126 20 Q122 30 130 36" stroke="url(#g2h)" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+          <path d="M97 66 Q98 58 100 53 Q102 58 103 66" stroke="#1a0c08" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <g class="flame" filter="url(#ff2)">
+            <ellipse cx="100" cy="42" rx="7" ry="13" fill="rgba(255,140,20,0.2)"/>
+            <path d="M94 50 Q96 36 100 30 Q104 36 106 50 Q104 55 100 56 Q96 55 94 50Z" fill="#ffbb33"/>
+            <path d="M97 48 Q98 38 100 33 Q102 38 103 48 Q102 52 100 53 Q98 52 97 48Z" fill="#ffee66"/>
+            <ellipse cx="100" cy="41" rx="3" ry="6" fill="rgba(255,252,210,0.85)"/>
+          </g>
+        </svg>
+      </div>
+      <div class="product-info">
+        <p class="product-name">Mera Mera No Mi</p>
+        <p class="product-scent">Spiced Orange</p>
+        <p class="product-price">€34.99</p>
+        <button class="product-btn">View Product</button>
+      </div>
+    </div>
+
+    <!-- YAMI YAMI - Purple -->
+    <div class="product-card sr">
+      <div class="product-img">
+        <svg viewBox="0 0 200 210" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="g3" cx="32%" cy="22%" r="72%">
+              <stop offset="0%" stop-color="#8844c0"/><stop offset="22%" stop-color="#622890"/>
+              <stop offset="55%" stop-color="#3a0e60"/><stop offset="100%" stop-color="#120420"/>
+            </radialGradient>
+            <radialGradient id="g3b" cx="30%" cy="25%" r="65%">
+              <stop offset="0%" stop-color="#9955d0"/><stop offset="100%" stop-color="#280840"/>
+            </radialGradient>
+            <radialGradient id="g3p" cx="50%" cy="25%">
+              <stop offset="0%" stop-color="#c09030"/><stop offset="100%" stop-color="#3a2808"/>
+            </radialGradient>
+            <linearGradient id="g3h" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#d4a832"/><stop offset="50%" stop-color="#906015"/><stop offset="100%" stop-color="#c08820"/>
+            </linearGradient>
+            <filter id="ff3"><feGaussianBlur stdDeviation="2.5" result="b"/><feComposite in="SourceGraphic" in2="b" operator="over"/></filter>
+          </defs>
+          <ellipse cx="100" cy="197" rx="60" ry="9" fill="url(#g3p)"/>
+          <ellipse cx="100" cy="194" rx="57" ry="6" fill="#d4a832" opacity="0.4"/>
+          <ellipse cx="100" cy="138" rx="80" ry="82" fill="url(#g3)"/>
+          <ellipse cx="100" cy="74" rx="11" ry="11" fill="url(#g3b)" opacity="0.92"/>
+          <ellipse cx="75" cy="85" rx="10" ry="10" fill="url(#g3b)" opacity="0.88"/>
+          <ellipse cx="125" cy="85" rx="10" ry="10" fill="url(#g3b)" opacity="0.87"/>
+          <ellipse cx="58" cy="106" rx="10" ry="10" fill="url(#g3b)" opacity="0.85"/>
+          <ellipse cx="100" cy="97" rx="11" ry="11" fill="url(#g3b)" opacity="0.9"/>
+          <ellipse cx="142" cy="106" rx="10" ry="10" fill="url(#g3b)" opacity="0.84"/>
+          <ellipse cx="50" cy="130" rx="9" ry="9" fill="url(#g3b)" opacity="0.82"/>
+          <ellipse cx="80" cy="120" rx="11" ry="11" fill="url(#g3b)" opacity="0.88"/>
+          <ellipse cx="110" cy="118" rx="12" ry="12" fill="url(#g3b)" opacity="0.9"/>
+          <ellipse cx="140" cy="122" rx="10" ry="10" fill="url(#g3b)" opacity="0.85"/>
+          <ellipse cx="55" cy="155" rx="9" ry="9" fill="url(#g3b)" opacity="0.8"/>
+          <ellipse cx="83" cy="146" rx="10" ry="10" fill="url(#g3b)" opacity="0.85"/>
+          <ellipse cx="112" cy="144" rx="11" ry="11" fill="url(#g3b)" opacity="0.87"/>
+          <ellipse cx="140" cy="148" rx="10" ry="9" fill="url(#g3b)" opacity="0.82"/>
+          <ellipse cx="70" cy="174" rx="9" ry="8" fill="url(#g3b)" opacity="0.76"/>
+          <ellipse cx="98" cy="168" rx="10" ry="10" fill="url(#g3b)" opacity="0.8"/>
+          <ellipse cx="126" cy="170" rx="9" ry="9" fill="url(#g3b)" opacity="0.74"/>
+          <ellipse cx="72" cy="108" rx="32" ry="42" fill="rgba(180,140,255,0.06)" transform="rotate(-15 72 108)"/>
+          <path d="M82 68 Q66 52 58 38 Q52 24 60 16 Q68 10 74 20 Q78 30 70 36" stroke="url(#g3h)" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+          <path d="M118 68 Q134 52 142 38 Q148 24 140 16 Q132 10 126 20 Q122 30 130 36" stroke="url(#g3h)" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+          <path d="M97 66 Q98 58 100 53 Q102 58 103 66" stroke="#1a0c08" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <g class="flame2" filter="url(#ff3)">
+            <ellipse cx="100" cy="42" rx="7" ry="13" fill="rgba(255,120,20,0.2)"/>
+            <path d="M94 50 Q96 36 100 30 Q104 36 106 50 Q104 55 100 56 Q96 55 94 50Z" fill="#ffaa22"/>
+            <path d="M97 48 Q98 38 100 33 Q102 38 103 48 Q102 52 100 53 Q98 52 97 48Z" fill="#ffdd55"/>
+            <ellipse cx="100" cy="41" rx="3" ry="6" fill="rgba(255,248,200,0.8)"/>
+          </g>
+        </svg>
+      </div>
+      <div class="product-info">
+        <p class="product-name">Yami Yami No Mi</p>
+        <p class="product-scent">Dark Amber</p>
+        <p class="product-price">€34.99</p>
+        <button class="product-btn">View Product</button>
+      </div>
+    </div>
+
+    <!-- ITO ITO - Ivory/Cream -->
+    <div class="product-card sr">
+      <div class="product-img">
+        <svg viewBox="0 0 200 210" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="g4" cx="32%" cy="22%" r="72%">
+              <stop offset="0%" stop-color="#f4e8d0"/><stop offset="22%" stop-color="#d8c0a0"/>
+              <stop offset="55%" stop-color="#a88860"/><stop offset="100%" stop-color="#5a3c20"/>
+            </radialGradient>
+            <radialGradient id="g4b" cx="30%" cy="25%" r="65%">
+              <stop offset="0%" stop-color="#fff8ee"/><stop offset="100%" stop-color="#8a6840"/>
+            </radialGradient>
+            <radialGradient id="g4p" cx="50%" cy="25%">
+              <stop offset="0%" stop-color="#c09030"/><stop offset="100%" stop-color="#3a2808"/>
+            </radialGradient>
+            <linearGradient id="g4h" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#d4a832"/><stop offset="50%" stop-color="#906015"/><stop offset="100%" stop-color="#c08820"/>
+            </linearGradient>
+            <filter id="ff4"><feGaussianBlur stdDeviation="2.5" result="b"/><feComposite in="SourceGraphic" in2="b" operator="over"/></filter>
+          </defs>
+          <ellipse cx="100" cy="197" rx="60" ry="9" fill="url(#g4p)"/>
+          <ellipse cx="100" cy="194" rx="57" ry="6" fill="#d4a832" opacity="0.4"/>
+          <ellipse cx="100" cy="138" rx="80" ry="82" fill="url(#g4)"/>
+          <ellipse cx="100" cy="74" rx="11" ry="11" fill="url(#g4b)" opacity="0.92"/>
+          <ellipse cx="75" cy="85" rx="10" ry="10" fill="url(#g4b)" opacity="0.88"/>
+          <ellipse cx="125" cy="85" rx="10" ry="10" fill="url(#g4b)" opacity="0.87"/>
+          <ellipse cx="58" cy="106" rx="10" ry="10" fill="url(#g4b)" opacity="0.85"/>
+          <ellipse cx="100" cy="97" rx="11" ry="11" fill="url(#g4b)" opacity="0.9"/>
+          <ellipse cx="142" cy="106" rx="10" ry="10" fill="url(#g4b)" opacity="0.84"/>
+          <ellipse cx="50" cy="130" rx="9" ry="9" fill="url(#g4b)" opacity="0.82"/>
+          <ellipse cx="80" cy="120" rx="11" ry="11" fill="url(#g4b)" opacity="0.88"/>
+          <ellipse cx="110" cy="118" rx="12" ry="12" fill="url(#g4b)" opacity="0.9"/>
+          <ellipse cx="140" cy="122" rx="10" ry="10" fill="url(#g4b)" opacity="0.85"/>
+          <ellipse cx="55" cy="155" rx="9" ry="9" fill="url(#g4b)" opacity="0.8"/>
+          <ellipse cx="83" cy="146" rx="10" ry="10" fill="url(#g4b)" opacity="0.85"/>
+          <ellipse cx="112" cy="144" rx="11" ry="11" fill="url(#g4b)" opacity="0.87"/>
+          <ellipse cx="140" cy="148" rx="10" ry="9" fill="url(#g4b)" opacity="0.82"/>
+          <ellipse cx="70" cy="174" rx="9" ry="8" fill="url(#g4b)" opacity="0.76"/>
+          <ellipse cx="98" cy="168" rx="10" ry="10" fill="url(#g4b)" opacity="0.8"/>
+          <ellipse cx="126" cy="170" rx="9" ry="9" fill="url(#g4b)" opacity="0.74"/>
+          <ellipse cx="72" cy="108" rx="32" ry="42" fill="rgba(255,255,240,0.12)" transform="rotate(-15 72 108)"/>
+          <path d="M82 68 Q66 52 58 38 Q52 24 60 16 Q68 10 74 20 Q78 30 70 36" stroke="url(#g4h)" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+          <path d="M118 68 Q134 52 142 38 Q148 24 140 16 Q132 10 126 20 Q122 30 130 36" stroke="url(#g4h)" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+          <path d="M97 66 Q98 58 100 53 Q102 58 103 66" stroke="#1a0c08" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <g class="flame" filter="url(#ff4)">
+            <ellipse cx="100" cy="42" rx="7" ry="13" fill="rgba(255,120,20,0.2)"/>
+            <path d="M94 50 Q96 36 100 30 Q104 36 106 50 Q104 55 100 56 Q96 55 94 50Z" fill="#ffaa22"/>
+            <path d="M97 48 Q98 38 100 33 Q102 38 103 48 Q102 52 100 53 Q98 52 97 48Z" fill="#ffdd55"/>
+            <ellipse cx="100" cy="41" rx="3" ry="6" fill="rgba(255,248,200,0.8)"/>
+          </g>
+        </svg>
+      </div>
+      <div class="product-info">
+        <p class="product-name">Ito Ito No Mi</p>
+        <p class="product-scent">Cotton Blossom</p>
+        <p class="product-price">€34.99</p>
+        <button class="product-btn">View Product</button>
+      </div>
+    </div>
+
+  </div>
+  <div class="collection-cta sr" style="margin-top:44px">
+    <a href="#" class="btn">View All Collections</a>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="story-left">
+    <!-- Pirate ship sunset painting SVG -->
+    <svg viewBox="0 0 560 440" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <radialGradient id="sg1" cx="50%" cy="55%" r="55%">
+          <stop offset="0%" stop-color="#ffcc44" stop-opacity="0.95"/>
+          <stop offset="20%" stop-color="#ff8800" stop-opacity="0.9"/>
+          <stop offset="50%" stop-color="#cc3300" stop-opacity="0.8"/>
+          <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="sg2" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#050108"/>
+          <stop offset="25%" stop-color="#1c0504"/>
+          <stop offset="55%" stop-color="#6a1500"/>
+          <stop offset="78%" stop-color="#c43800"/>
+          <stop offset="100%" stop-color="#dd5500"/>
+        </linearGradient>
+        <linearGradient id="sg3" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#aa2800"/>
+          <stop offset="100%" stop-color="#1a0500"/>
+        </linearGradient>
+        <radialGradient id="sg4" cx="50%" cy="0%" r="100%">
+          <stop offset="0%" stop-color="#ff8800" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#ff8800" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="sf1"><feGaussianBlur stdDeviation="8"/></filter>
+        <filter id="sf2"><feGaussianBlur stdDeviation="3"/></filter>
+      </defs>
+
+      <!-- Sky -->
+      <rect width="560" height="440" fill="url(#sg2)"/>
+
+      <!-- Cloud layers dark -->
+      <ellipse cx="80" cy="70" rx="90" ry="28" fill="#0a0202" opacity="0.7"/>
+      <ellipse cx="120" cy="55" rx="65" ry="20" fill="#0d0303" opacity="0.6"/>
+      <ellipse cx="430" cy="55" rx="100" ry="32" fill="#0a0202" opacity="0.65"/>
+      <ellipse cx="390" cy="42" rx="70" ry="22" fill="#0d0303" opacity="0.55"/>
+      <ellipse cx="240" cy="30" rx="50" ry="16" fill="#080202" opacity="0.5"/>
+      <ellipse cx="310" cy="90" rx="80" ry="20" fill="#150403" opacity="0.45"/>
+
+      <!-- Sun glow bloom -->
+      <ellipse cx="280" cy="265" rx="120" ry="120" fill="#ff6600" opacity="0.12" filter="url(#sf1)"/>
+      <ellipse cx="280" cy="265" rx="70" ry="70" fill="#ff8800" opacity="0.25" filter="url(#sf2)"/>
+
+      <!-- Sun disk -->
+      <circle cx="280" cy="265" r="46" fill="#ffcc44"/>
+      <circle cx="280" cy="265" r="42" fill="#ffaa22"/>
+      <circle cx="280" cy="265" r="36" fill="#ff8800"/>
+
+      <!-- Horizon glow -->
+      <rect x="0" y="290" width="560" height="30" fill="url(#sg4)" opacity="0.5"/>
+
+      <!-- Sea -->
+      <rect x="0" y="298" width="560" height="142" fill="url(#sg3)"/>
+      <!-- Water texture waves -->
+      <g stroke="#cc3300" stroke-width="1.2" fill="none" opacity="0.35">
+        <path d="M0 318 Q70 312 140 318 Q210 324 280 318 Q350 312 420 318 Q490 324 560 318"/>
+        <path d="M0 334 Q80 327 160 334 Q240 341 320 334 Q400 327 480 334 Q520 337 560 334"/>
+        <path d="M0 352 Q90 344 180 352 Q270 360 360 352 Q450 344 560 352"/>
+        <path d="M40 370 Q130 362 220 370 Q310 378 400 370 Q470 364 530 370"/>
+        <path d="M0 390 Q100 382 200 390 Q300 398 400 390 Q480 384 560 390"/>
+        <path d="M0 410 Q120 403 240 410 Q360 417 480 410 Q520 407 560 410"/>
+      </g>
+      <!-- Sun reflection on water -->
+      <ellipse cx="280" cy="340" rx="22" ry="80" fill="#ff8800" opacity="0.45"/>
+      <ellipse cx="280" cy="380" rx="14" ry="50" fill="#ffaa22" opacity="0.25"/>
+
+      <!-- Ship hull shadow/reflection -->
+      <ellipse cx="280" cy="320" rx="95" ry="12" fill="#000" opacity="0.35" filter="url(#sf2)"/>
+
+      <!-- Ship hull -->
+      <path d="M188 296 L195 318 Q230 332 280 334 Q330 332 365 318 L372 296 Z" fill="#0a0505"/>
+      <path d="M192 296 L200 292 L360 292 L368 296 Z" fill="#120808"/>
+      <!-- Hull details -->
+      <path d="M200 298 L360 298" stroke="#1e0a0a" stroke-width="1" opacity="0.8"/>
+      <path d="M204 304 L356 304" stroke="#1e0a0a" stroke-width="0.8" opacity="0.5"/>
+
+      <!-- Main mast -->
+      <rect x="276" y="170" width="8" height="125" fill="#0e0808"/>
+      <rect x="276" y="170" width="3" height="125" fill="rgba(80,30,20,0.3)"/>
+      <!-- Fore mast -->
+      <rect x="230" y="200" width="6" height="95" fill="#100a08"/>
+
+      <!-- Main sails -->
+      <path d="M280 175 Q335 195 340 240 L280 240 Z" fill="#180a08" opacity="0.9"/>
+      <path d="M280 175 Q225 195 220 240 L280 240 Z" fill="#120808" opacity="0.88"/>
+      <!-- Upper main sail -->
+      <path d="M280 175 Q320 188 322 212 L280 212 Z" fill="#1a0c08" opacity="0.85"/>
+      <path d="M280 175 Q240 188 238 212 L280 212 Z" fill="#150a08" opacity="0.82"/>
+      <!-- Fore sail -->
+      <path d="M233 205 Q268 218 266 250 L233 250 Z" fill="#160a08" opacity="0.85"/>
+
+      <!-- Ropes/rigging -->
+      <g stroke="#1a0808" stroke-width="1.5" fill="none" opacity="0.7">
+        <line x1="280" y1="175" x2="192" y2="292"/>
+        <line x1="280" y1="175" x2="368" y2="292"/>
+        <line x1="280" y1="175" x2="233" y2="295"/>
+        <line x1="233" y1="205" x2="192" y2="290"/>
+      </g>
+
+      <!-- Flag -->
+      <rect x="276" y="165" width="3" height="18" fill="#0e0808"/>
+      <path d="M279 165 L279 178 L292 172 Z" fill="#7a0808" opacity="0.9"/>
+
+      <!-- Dark atmospheric clouds over ship -->
+      <ellipse cx="180" cy="200" rx="70" ry="22" fill="#0a0202" opacity="0.55"/>
+      <ellipse cx="390" cy="180" rx="80" ry="25" fill="#0c0303" opacity="0.5"/>
+      <ellipse cx="100" cy="150" rx="55" ry="18" fill="#080101" opacity="0.45"/>
+      <ellipse cx="460" cy="130" rx="65" ry="20" fill="#080101" opacity="0.42"/>
+
+      <!-- Overall vignette -->
+      <radialGradient id="svign" cx="50%" cy="50%">
+        <stop offset="40%" stop-color="rgba(0,0,0,0)"/>
+        <stop offset="100%" stop-color="rgba(0,0,0,0.65)"/>
+      </radialGradient>
+      <rect width="560" height="440" fill="url(#svign)"/>
+    </svg>
+  </div>
+  <div class="story-right sr">
+    <div class="story-line"><span>Our Story</span></div>
+    <h2 class="story-title">Born From Legend</h2>
+    <p class="story-body">Akuma No Melt was created for dreamers, adventurers and fans of the Grand Line. We bring your favorite Devil Fruits to life through hand-poured candles made with passion. Light one, awaken your power.</p>
+    <a href="#" class="btn">Learn More About Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <div class="footer-brand-logo">
+        <svg viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="16" r="10" stroke="#c94a1a" stroke-width="1.4"/>
+          <circle cx="14" cy="16" r="6.5" stroke="#c94a1a" stroke-width="1"/>
+          <circle cx="14" cy="16" r="3" fill="#c94a1a"/>
+          <path d="M14 6C14 6 11.5 1.5 14 0C16.5 1.5 14 6 14 6Z" fill="#c94a1a"/>
+        </svg>
+        Akuma No Melt
+      </div>
+      <p class="footer-tagline">Akuma no Mi candles.<br>Unique scents. Legendary vibes.<br>Awaken your power.</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 000 12.68 6.34 6.34 0 006.33-6.34V8.75a8.16 8.16 0 004.77 1.52V6.81a4.85 4.85 0 01-1-.12z"/></svg></a>
+        <a href="#" aria-label="Twitter/X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5>Shop</h5>
+      <ul>
+        <li><a href="#">All Products</a></li>
+        <li><a href="#">Best Sellers</a></li>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Gift Cards</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Help</h5>
+      <ul>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Shipping &amp; Returns</a></li>
+        <li><a href="#">Care Instructions</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-newsletter">
+      <h5>Stay in the Loop</h5>
+      <p>Join our crew for exclusive drops, new scents and special offers.</p>
+      <div class="newsletter-row">
+        <input type="email" placeholder="Enter your email" aria-label="Email address"/>
+        <button aria-label="Subscribe">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Akuma No Melt. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile menu
+document.getElementById('ham').addEventListener('click',()=>{
+  document.getElementById('mobileNav').classList.toggle('open');
+});
+// Navbar scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').style.background=
+    window.scrollY>40?'rgba(6,3,5,0.98)':'rgba(10,5,7,0.93)';
+});
+// Scroll reveal
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      const delay=e.target.closest('.product-grid')
+        ?[...e.target.parentElement.children].indexOf(e.target)*90:0;
+      setTimeout(()=>e.target.classList.add('in'),delay);
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.sr').forEach(el=>obs.observe(el));
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();document.getElementById('mobileNav').classList.remove('open');t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+// Newsletter
+const ni=document.querySelector('.newsletter-row input');
+const nb=document.querySelector('.newsletter-row button');
+nb&&nb.addEventListener('click',()=>{
+  if(ni.value.includes('@')){
+    ni.value='';ni.placeholder="You're in the crew!";
+    nb.style.background='#2a6030';
+    setTimeout(()=>{ni.placeholder='Enter your email';nb.style.background='';},3000);
+  }
+});
+</script>
+</body>
+</html>
