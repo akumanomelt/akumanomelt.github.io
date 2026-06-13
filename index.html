@@ -1025,121 +1025,336 @@ footer{
 <!-- STORY -->
 <section class="story" id="story">
   <div class="story-left">
-    <!-- Pirate ship sunset painting SVG -->
-    <svg viewBox="0 0 560 440" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <svg viewBox="0 0 560 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;min-height:280px">
       <defs>
-        <radialGradient id="sg1" cx="50%" cy="55%" r="55%">
-          <stop offset="0%" stop-color="#ffcc44" stop-opacity="0.95"/>
-          <stop offset="20%" stop-color="#ff8800" stop-opacity="0.9"/>
-          <stop offset="50%" stop-color="#cc3300" stop-opacity="0.8"/>
-          <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-        </radialGradient>
-        <linearGradient id="sg2" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#050108"/>
-          <stop offset="25%" stop-color="#1c0504"/>
-          <stop offset="55%" stop-color="#6a1500"/>
-          <stop offset="78%" stop-color="#c43800"/>
-          <stop offset="100%" stop-color="#dd5500"/>
+        <!-- Sky gradient: deep dark top → fiery orange-red at horizon -->
+        <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%"   stop-color="#0e0203"/>
+          <stop offset="18%"  stop-color="#280504"/>
+          <stop offset="42%"  stop-color="#7a1500"/>
+          <stop offset="65%"  stop-color="#c43500"/>
+          <stop offset="82%"  stop-color="#e05000"/>
+          <stop offset="100%" stop-color="#c84000"/>
         </linearGradient>
-        <linearGradient id="sg3" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#aa2800"/>
+        <!-- Sea gradient -->
+        <linearGradient id="sea" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%"   stop-color="#b83800"/>
+          <stop offset="40%"  stop-color="#6a1800"/>
           <stop offset="100%" stop-color="#1a0500"/>
         </linearGradient>
-        <radialGradient id="sg4" cx="50%" cy="0%" r="100%">
-          <stop offset="0%" stop-color="#ff8800" stop-opacity="0.6"/>
-          <stop offset="100%" stop-color="#ff8800" stop-opacity="0"/>
+        <!-- Sun glow -->
+        <radialGradient id="sunG" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"   stop-color="#ffe066"/>
+          <stop offset="30%"  stop-color="#ffaa22"/>
+          <stop offset="70%"  stop-color="#ff6600" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#cc3300" stop-opacity="0"/>
         </radialGradient>
-        <filter id="sf1"><feGaussianBlur stdDeviation="8"/></filter>
-        <filter id="sf2"><feGaussianBlur stdDeviation="3"/></filter>
+        <!-- Cliff gradient -->
+        <linearGradient id="cliff" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%"   stop-color="#3a0a04"/>
+          <stop offset="60%"  stop-color="#1e0502"/>
+          <stop offset="100%" stop-color="#0a0201"/>
+        </linearGradient>
+        <!-- Ship body -->
+        <linearGradient id="shipG" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%"   stop-color="#1a0805"/>
+          <stop offset="100%" stop-color="#080302"/>
+        </linearGradient>
+        <!-- Sail gradient -->
+        <linearGradient id="sailG" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%"   stop-color="#2a1008"/>
+          <stop offset="50%"  stop-color="#160806"/>
+          <stop offset="100%" stop-color="#0e0504"/>
+        </linearGradient>
+        <!-- Water reflection column -->
+        <linearGradient id="sunRef" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%"   stop-color="#ff9900" stop-opacity="0.55"/>
+          <stop offset="100%" stop-color="#aa3300" stop-opacity="0.1"/>
+        </linearGradient>
+        <!-- Vignette -->
+        <radialGradient id="vig" cx="50%" cy="50%" r="70%">
+          <stop offset="30%" stop-color="rgba(0,0,0,0)"/>
+          <stop offset="100%" stop-color="rgba(0,0,0,0.72)"/>
+        </radialGradient>
+        <filter id="glow1"><feGaussianBlur stdDeviation="10" result="b"/><feComposite in="SourceGraphic" in2="b" operator="over"/></filter>
+        <filter id="glow2"><feGaussianBlur stdDeviation="5"  result="b"/><feComposite in="SourceGraphic" in2="b" operator="over"/></filter>
+        <filter id="glow3"><feGaussianBlur stdDeviation="2"  result="b"/><feComposite in="SourceGraphic" in2="b" operator="over"/></filter>
+        <filter id="blur4"><feGaussianBlur stdDeviation="4"/></filter>
+        <filter id="blur2"><feGaussianBlur stdDeviation="2"/></filter>
+        <clipPath id="svgClip"><rect width="560" height="280"/></clipPath>
       </defs>
 
-      <!-- Sky -->
-      <rect width="560" height="440" fill="url(#sg2)"/>
+      <g clip-path="url(#svgClip)">
 
-      <!-- Cloud layers dark -->
-      <ellipse cx="80" cy="70" rx="90" ry="28" fill="#0a0202" opacity="0.7"/>
-      <ellipse cx="120" cy="55" rx="65" ry="20" fill="#0d0303" opacity="0.6"/>
-      <ellipse cx="430" cy="55" rx="100" ry="32" fill="#0a0202" opacity="0.65"/>
-      <ellipse cx="390" cy="42" rx="70" ry="22" fill="#0d0303" opacity="0.55"/>
-      <ellipse cx="240" cy="30" rx="50" ry="16" fill="#080202" opacity="0.5"/>
-      <ellipse cx="310" cy="90" rx="80" ry="20" fill="#150403" opacity="0.45"/>
+      <!-- ── SKY ── -->
+      <rect width="560" height="280" fill="url(#sky)"/>
 
-      <!-- Sun glow bloom -->
-      <ellipse cx="280" cy="265" rx="120" ry="120" fill="#ff6600" opacity="0.12" filter="url(#sf1)"/>
-      <ellipse cx="280" cy="265" rx="70" ry="70" fill="#ff8800" opacity="0.25" filter="url(#sf2)"/>
+      <!-- Atmospheric haze bands in sky -->
+      <rect x="0" y="140" width="560" height="25" fill="#cc4400" opacity="0.18"/>
+      <rect x="0" y="120" width="560" height="20" fill="#aa3300" opacity="0.12"/>
 
-      <!-- Sun disk -->
-      <circle cx="280" cy="265" r="46" fill="#ffcc44"/>
-      <circle cx="280" cy="265" r="42" fill="#ffaa22"/>
-      <circle cx="280" cy="265" r="36" fill="#ff8800"/>
+      <!-- ── SUN GLOW (large ambient bloom) ── -->
+      <ellipse cx="245" cy="178" rx="110" ry="90" fill="#ff6600" opacity="0.13" filter="url(#glow1)"/>
+      <ellipse cx="245" cy="178" rx="65"  ry="55" fill="#ff8800" opacity="0.22" filter="url(#glow2)"/>
 
-      <!-- Horizon glow -->
-      <rect x="0" y="290" width="560" height="30" fill="url(#sg4)" opacity="0.5"/>
+      <!-- ── SUN DISK ── -->
+      <circle cx="245" cy="178" r="32" fill="#ffdd66" filter="url(#glow2)"/>
+      <circle cx="245" cy="178" r="28" fill="#ffcc44"/>
+      <circle cx="245" cy="178" r="24" fill="#ffaa22"/>
+      <circle cx="245" cy="178" r="18" fill="#ff8800"/>
 
-      <!-- Sea -->
-      <rect x="0" y="298" width="560" height="142" fill="url(#sg3)"/>
-      <!-- Water texture waves -->
-      <g stroke="#cc3300" stroke-width="1.2" fill="none" opacity="0.35">
-        <path d="M0 318 Q70 312 140 318 Q210 324 280 318 Q350 312 420 318 Q490 324 560 318"/>
-        <path d="M0 334 Q80 327 160 334 Q240 341 320 334 Q400 327 480 334 Q520 337 560 334"/>
-        <path d="M0 352 Q90 344 180 352 Q270 360 360 352 Q450 344 560 352"/>
-        <path d="M40 370 Q130 362 220 370 Q310 378 400 370 Q470 364 530 370"/>
-        <path d="M0 390 Q100 382 200 390 Q300 398 400 390 Q480 384 560 390"/>
-        <path d="M0 410 Q120 403 240 410 Q360 417 480 410 Q520 407 560 410"/>
+      <!-- ── DARK CLOUDS - layered, painterly ── -->
+      <!-- Upper sky clouds - very dark, textured -->
+      <g opacity="0.85">
+        <ellipse cx="60"  cy="28"  rx="80"  ry="22" fill="#0d0203"/>
+        <ellipse cx="30"  cy="18"  rx="50"  ry="14" fill="#0a0202"/>
+        <ellipse cx="105" cy="20"  rx="55"  ry="16" fill="#120304"/>
+        <ellipse cx="160" cy="35"  rx="70"  ry="18" fill="#0e0203"/>
+        <ellipse cx="130" cy="48"  rx="85"  ry="20" fill="#160405" opacity="0.75"/>
+        <ellipse cx="60"  cy="55"  rx="65"  ry="16" fill="#1a0506" opacity="0.6"/>
+        <ellipse cx="360" cy="22"  rx="90"  ry="25" fill="#0c0202"/>
+        <ellipse cx="440" cy="15"  rx="80"  ry="18" fill="#090101"/>
+        <ellipse cx="500" cy="30"  rx="70"  ry="20" fill="#0e0303"/>
+        <ellipse cx="420" cy="42"  rx="100" ry="22" fill="#150404" opacity="0.8"/>
+        <ellipse cx="490" cy="58"  rx="75"  ry="18" fill="#180506" opacity="0.65"/>
+        <ellipse cx="310" cy="40"  rx="60"  ry="15" fill="#0d0202" opacity="0.7"/>
       </g>
-      <!-- Sun reflection on water -->
-      <ellipse cx="280" cy="340" rx="22" ry="80" fill="#ff8800" opacity="0.45"/>
-      <ellipse cx="280" cy="380" rx="14" ry="50" fill="#ffaa22" opacity="0.25"/>
+      <!-- Mid clouds, slightly warmer -->
+      <g opacity="0.7">
+        <ellipse cx="80"  cy="80"  rx="90"  ry="24" fill="#1e0604"/>
+        <ellipse cx="50"  cy="95"  rx="65"  ry="18" fill="#250806"/>
+        <ellipse cx="140" cy="72"  rx="75"  ry="20" fill="#1a0504"/>
+        <ellipse cx="420" cy="75"  rx="95"  ry="22" fill="#200705"/>
+        <ellipse cx="490" cy="90"  rx="70"  ry="18" fill="#1c0604"/>
+        <ellipse cx="350" cy="88"  rx="80"  ry="18" fill="#180504" opacity="0.8"/>
+      </g>
+      <!-- Lower dramatic clouds catching the orange light -->
+      <g opacity="0.75">
+        <ellipse cx="90"  cy="118" rx="100" ry="26" fill="#2a0a05"/>
+        <ellipse cx="55"  cy="132" rx="70"  ry="19" fill="#350d06"/>
+        <ellipse cx="160" cy="108" rx="80"  ry="22" fill="#280905"/>
+        <ellipse cx="420" cy="110" rx="110" ry="28" fill="#2e0b06"/>
+        <ellipse cx="500" cy="125" rx="75"  ry="20" fill="#320c06"/>
+        <ellipse cx="340" cy="122" rx="90"  ry="22" fill="#260905" opacity="0.8"/>
+      </g>
+      <!-- Brightest cloud edges near horizon, catching orange glow -->
+      <g opacity="0.55">
+        <ellipse cx="100" cy="148" rx="90"  ry="20" fill="#5a1800"/>
+        <ellipse cx="60"  cy="158" rx="60"  ry="15" fill="#6a2000"/>
+        <ellipse cx="400" cy="145" rx="100" ry="22" fill="#5e1a00"/>
+        <ellipse cx="480" cy="155" rx="70"  ry="16" fill="#641c00"/>
+      </g>
 
-      <!-- Ship hull shadow/reflection -->
-      <ellipse cx="280" cy="320" rx="95" ry="12" fill="#000" opacity="0.35" filter="url(#sf2)"/>
+      <!-- ── SEA ── -->
+      <rect x="0" y="185" width="560" height="95" fill="url(#sea)"/>
 
-      <!-- Ship hull -->
-      <path d="M188 296 L195 318 Q230 332 280 334 Q330 332 365 318 L372 296 Z" fill="#0a0505"/>
-      <path d="M192 296 L200 292 L360 292 L368 296 Z" fill="#120808"/>
-      <!-- Hull details -->
-      <path d="M200 298 L360 298" stroke="#1e0a0a" stroke-width="1" opacity="0.8"/>
-      <path d="M204 304 L356 304" stroke="#1e0a0a" stroke-width="0.8" opacity="0.5"/>
+      <!-- Sea shimmer / wave lines -->
+      <g fill="none" opacity="0.3">
+        <path d="M0 195 Q70 190 140 195 Q210 200 280 195 Q350 190 420 195 Q490 200 560 195" stroke="#dd5500" stroke-width="1.2"/>
+        <path d="M0 205 Q80 199 160 205 Q240 211 320 205 Q400 199 480 205 Q520 208 560 205" stroke="#cc4400" stroke-width="1"/>
+        <path d="M0 216 Q90 210 180 216 Q270 222 360 216 Q450 210 560 216" stroke="#bb3800" stroke-width="1"/>
+        <path d="M0 228 Q100 222 200 228 Q300 234 400 228 Q480 223 560 228" stroke="#aa3000" stroke-width="0.9"/>
+        <path d="M0 240 Q110 234 220 240 Q330 246 440 240 Q500 236 560 240" stroke="#993000" stroke-width="0.8"/>
+        <path d="M0 254 Q120 248 240 254 Q360 260 480 254 Q520 251 560 254" stroke="#882800" stroke-width="0.8"/>
+        <path d="M0 268 Q140 262 280 268 Q420 274 560 268" stroke="#772200" stroke-width="0.7"/>
+      </g>
 
-      <!-- Main mast -->
-      <rect x="276" y="170" width="8" height="125" fill="#0e0808"/>
-      <rect x="276" y="170" width="3" height="125" fill="rgba(80,30,20,0.3)"/>
+      <!-- Sun reflection on water (vertical column) -->
+      <ellipse cx="245" cy="230" rx="18" ry="55" fill="url(#sunRef)"/>
+      <ellipse cx="245" cy="218" rx="8"  ry="18" fill="#ffaa22" opacity="0.35"/>
+
+      <!-- ── ROCKY CLIFFS LEFT ── -->
+      <!-- Far distant cliff (lighter) -->
+      <path d="M0 165 Q15 140 28 130 Q38 118 50 125 Q58 130 65 120 Q72 108 80 115 Q88 120 95 112 Q105 100 115 110 Q120 115 125 140 Q128 158 130 175 L0 175 Z"
+        fill="#1e0604" opacity="0.75"/>
+      <!-- Near cliff mass left -->
+      <path d="M0 280 L0 148 Q8 132 18 118 Q25 105 35 110 Q44 114 52 100 Q60 86 72 92 Q82 98 90 84 Q100 68 112 76 Q122 83 128 70 Q135 55 145 63 Q153 70 158 85 Q163 98 160 120 Q158 140 155 165 Q152 178 148 185 Q140 190 120 195 Q95 200 70 210 Q40 222 20 240 Q8 254 0 265 Z"
+        fill="url(#cliff)"/>
+      <!-- Cliff edge highlights -->
+      <path d="M128 70 Q135 55 145 63 Q153 70 158 85" stroke="#4a1206" stroke-width="1.5" fill="none" opacity="0.6"/>
+      <path d="M90 84 Q100 68 112 76 Q122 83 128 70" stroke="#3a0e05" stroke-width="1" fill="none" opacity="0.5"/>
+      <!-- Cliff face shading -->
+      <path d="M0 280 L0 200 Q20 185 45 195 Q65 205 80 198 Q100 190 115 195 Q130 200 148 185 Q145 210 130 230 Q110 248 80 258 Q50 265 25 270 Z"
+        fill="#0e0302" opacity="0.6"/>
+      <!-- Small rocks/cliff details bottom left -->
+      <ellipse cx="35" cy="260" rx="30" ry="18" fill="#150403" opacity="0.8"/>
+      <ellipse cx="15" cy="272" rx="22" ry="12" fill="#0e0302" opacity="0.9"/>
+      <path d="M55 245 Q65 235 78 240 Q88 244 82 255 Q72 262 58 258 Z" fill="#180504" opacity="0.7"/>
+
+      <!-- Small distant land right horizon -->
+      <path d="M380 172 Q395 162 410 167 Q420 170 428 165 Q436 158 445 163 Q452 168 458 172 L380 172 Z"
+        fill="#220806" opacity="0.6"/>
+
+      <!-- ── SHIP ── -->
+      <!-- Ship positioned left-center, overlapping cliffs -->
+
+      <!-- Water shadow below hull -->
+      <ellipse cx="248" cy="222" rx="78" ry="10" fill="#000" opacity="0.4" filter="url(#blur4)"/>
+
+      <!-- Hull -->
+      <path d="M172 200 Q175 216 180 222 Q205 234 248 236 Q292 234 316 222 Q322 216 325 200 Z"
+        fill="#0e0504"/>
+      <!-- Hull top rail -->
+      <path d="M175 200 Q180 196 210 193 L248 192 L286 193 Q318 196 323 200 Z"
+        fill="#160806"/>
+      <!-- Hull dark stripe -->
+      <path d="M178 204 Q210 200 248 199 Q286 200 320 204" stroke="#080202" stroke-width="2" fill="none"/>
+      <path d="M180 210 Q210 207 248 206 Q286 207 318 210" stroke="#0a0303" stroke-width="1.2" fill="none"/>
+      <!-- Hull planks suggestion -->
+      <path d="M190 215 Q248 213 306 215" stroke="#120504" stroke-width="0.8" fill="none" opacity="0.5"/>
+      <path d="M185 220 Q248 218 310 220" stroke="#120504" stroke-width="0.7" fill="none" opacity="0.4"/>
+      <!-- Stern (right) -->
+      <path d="M310 192 Q322 188 326 195 Q328 205 325 215 Q322 222 316 225" fill="#1a0806" stroke="#0e0403" stroke-width="0.8"/>
+      <!-- Bow (left) -->
+      <path d="M188 192 Q178 188 174 195 Q170 208 175 220 Q178 228 182 230" fill="#160705" stroke="#0c0302" stroke-width="0.8"/>
+      <!-- Bow sprit (diagonal pole from bow) -->
+      <line x1="175" y1="198" x2="128" y2="165" stroke="#100504" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="175" y1="198" x2="128" y2="165" stroke="#1e0a06" stroke-width="1.5" stroke-linecap="round"/>
+
+      <!-- ── MASTS (3 masts for large galleon) ── -->
       <!-- Fore mast -->
-      <rect x="230" y="200" width="6" height="95" fill="#100a08"/>
+      <rect x="200" y="112" width="5" height="83" fill="#0e0504"/>
+      <rect x="200" y="112" width="2" height="83" fill="#1e0a06" opacity="0.4"/>
+      <!-- Main mast (tallest) -->
+      <rect x="244" y="78"  width="6" height="117" fill="#0e0504"/>
+      <rect x="244" y="78"  width="2" height="117" fill="#1e0a06" opacity="0.4"/>
+      <!-- Mizzen mast (rear) -->
+      <rect x="292" y="118" width="5" height="77" fill="#0e0504"/>
+      <rect x="292" y="118" width="2" height="77" fill="#1e0a06" opacity="0.4"/>
 
-      <!-- Main sails -->
-      <path d="M280 175 Q335 195 340 240 L280 240 Z" fill="#180a08" opacity="0.9"/>
-      <path d="M280 175 Q225 195 220 240 L280 240 Z" fill="#120808" opacity="0.88"/>
-      <!-- Upper main sail -->
-      <path d="M280 175 Q320 188 322 212 L280 212 Z" fill="#1a0c08" opacity="0.85"/>
-      <path d="M280 175 Q240 188 238 212 L280 212 Z" fill="#150a08" opacity="0.82"/>
-      <!-- Fore sail -->
-      <path d="M233 205 Q268 218 266 250 L233 250 Z" fill="#160a08" opacity="0.85"/>
+      <!-- ── YARDS (horizontal spars) ── -->
+      <!-- Main mast yards -->
+      <line x1="210" y1="100" x2="282" y2="100" stroke="#0e0504" stroke-width="4" stroke-linecap="round"/>
+      <line x1="213" y1="120" x2="279" y2="120" stroke="#0c0403" stroke-width="3" stroke-linecap="round"/>
+      <line x1="218" y1="140" x2="274" y2="140" stroke="#0c0403" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Fore mast yards -->
+      <line x1="178" y1="128" x2="225" y2="128" stroke="#0c0403" stroke-width="3" stroke-linecap="round"/>
+      <line x1="182" y1="146" x2="222" y2="146" stroke="#0c0403" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Mizzen yards -->
+      <line x1="274" y1="132" x2="316" y2="132" stroke="#0c0403" stroke-width="3" stroke-linecap="round"/>
+      <line x1="278" y1="150" x2="312" y2="150" stroke="#0c0403" stroke-width="2" stroke-linecap="round"/>
 
-      <!-- Ropes/rigging -->
-      <g stroke="#1a0808" stroke-width="1.5" fill="none" opacity="0.7">
-        <line x1="280" y1="175" x2="192" y2="292"/>
-        <line x1="280" y1="175" x2="368" y2="292"/>
-        <line x1="280" y1="175" x2="233" y2="295"/>
-        <line x1="233" y1="205" x2="192" y2="290"/>
+      <!-- ── SAILS ── -->
+      <!-- Main lower sail (largest, billowing) -->
+      <path d="M212 100 Q250 108 280 100 L274 140 Q250 148 218 140 Z"
+        fill="url(#sailG)" opacity="0.92"/>
+      <!-- Main topsail -->
+      <path d="M214 82 Q247 88 278 82 L280 100 Q247 106 212 100 Z"
+        fill="#1e0907" opacity="0.88"/>
+      <!-- Main topgallant -->
+      <path d="M222 78 Q247 82 272 78 L278 94 Q247 98 216 94 Z"
+        fill="#180705" opacity="0.82"/>
+
+      <!-- Fore lower sail -->
+      <path d="M179 128 Q200 136 224 128 L222 146 Q200 152 180 146 Z"
+        fill="#1a0806" opacity="0.9"/>
+      <!-- Fore topsail -->
+      <path d="M180 114 Q200 119 223 114 L224 128 Q200 133 179 128 Z"
+        fill="#160705" opacity="0.85"/>
+      <!-- Fore topgallant -->
+      <path d="M185 112 Q201 116 220 112 L222 124 Q201 128 182 124 Z"
+        fill="#120604" opacity="0.78"/>
+
+      <!-- Mizzen sail -->
+      <path d="M275 132 Q292 138 314 132 L312 150 Q292 155 276 150 Z"
+        fill="#180805" opacity="0.88"/>
+      <!-- Mizzen topsail -->
+      <path d="M276 120 Q292 124 314 120 L314 132 Q292 136 275 132 Z"
+        fill="#140603" opacity="0.82"/>
+
+      <!-- Bowsprit sail (jib) -->
+      <path d="M128 165 Q155 172 175 198 Q158 190 136 188 Z"
+        fill="#160705" opacity="0.8"/>
+      <!-- Second jib -->
+      <path d="M128 165 Q148 158 175 165 Q162 172 135 175 Z"
+        fill="#120604" opacity="0.72"/>
+
+      <!-- ── RIGGING (ropes) ── -->
+      <g stroke="#0e0503" stroke-width="1.2" fill="none" opacity="0.75">
+        <!-- Forestays -->
+        <line x1="247" y1="80"  x2="175" y2="198"/>
+        <line x1="247" y1="80"  x2="323" y2="198"/>
+        <line x1="247" y1="80"  x2="128" y2="165"/>
+        <!-- Shrouds main -->
+        <line x1="247" y1="95"  x2="215" y2="195"/>
+        <line x1="247" y1="95"  x2="280" y2="195"/>
+        <!-- Fore stays -->
+        <line x1="202" y1="114" x2="175" y2="196"/>
+        <line x1="202" y1="114" x2="228" y2="196"/>
+        <!-- Mizzen stays -->
+        <line x1="294" y1="120" x2="270" y2="195"/>
+        <line x1="294" y1="120" x2="320" y2="196"/>
+        <!-- Cross lines -->
+        <line x1="213" y1="128" x2="225" y2="146"/>
+        <line x1="225" y1="128" x2="213" y2="146"/>
+        <line x1="275" y1="132" x2="285" y2="150"/>
+        <line x1="285" y1="132" x2="275" y2="150"/>
+        <!-- Bowsprit rigging -->
+        <line x1="128" y1="165" x2="175" y2="165"/>
+        <line x1="148" y1="155" x2="175" y2="185"/>
+        <line x1="138" y1="170" x2="165" y2="178"/>
+      </g>
+      <!-- Thinner running rigging -->
+      <g stroke="#0c0403" stroke-width="0.7" fill="none" opacity="0.55">
+        <line x1="213" y1="100" x2="202" y2="128"/>
+        <line x1="280" y1="100" x2="292" y2="130"/>
+        <line x1="218" y1="140" x2="213" y2="165"/>
+        <line x1="274" y1="140" x2="279" y2="165"/>
+        <line x1="247" y1="78"  x2="247" y2="195"/>
       </g>
 
-      <!-- Flag -->
-      <rect x="276" y="165" width="3" height="18" fill="#0e0808"/>
-      <path d="M279 165 L279 178 L292 172 Z" fill="#7a0808" opacity="0.9"/>
+      <!-- ── FLAGS ── -->
+      <!-- Main flag top -->
+      <rect x="245" y="72" width="3" height="12" fill="#0e0403"/>
+      <path d="M248 72 L248 82 L260 77 Z" fill="#8a0a0a" opacity="0.9"/>
+      <!-- Fore flag -->
+      <rect x="201" y="108" width="2" height="8" fill="#0e0403"/>
+      <path d="M203 108 L203 115 L212 111 Z" fill="#6a0808" opacity="0.85"/>
+      <!-- Mizzen pennant -->
+      <path d="M295 115 L295 122 L305 118 Z" fill="#780808" opacity="0.8"/>
 
-      <!-- Dark atmospheric clouds over ship -->
-      <ellipse cx="180" cy="200" rx="70" ry="22" fill="#0a0202" opacity="0.55"/>
-      <ellipse cx="390" cy="180" rx="80" ry="25" fill="#0c0303" opacity="0.5"/>
-      <ellipse cx="100" cy="150" rx="55" ry="18" fill="#080101" opacity="0.45"/>
-      <ellipse cx="460" cy="130" rx="65" ry="20" fill="#080101" opacity="0.42"/>
+      <!-- ── DEVIL FRUIT WATERMARK (right side) ── -->
+      <g opacity="0.12" transform="translate(420, 50)">
+        <!-- Outer decorative ring -->
+        <circle cx="70" cy="100" r="78" fill="none" stroke="#cc4400" stroke-width="2"/>
+        <circle cx="70" cy="100" r="68" fill="none" stroke="#cc4400" stroke-width="1"/>
+        <!-- Inner fruit body -->
+        <circle cx="70" cy="100" r="52" fill="none" stroke="#cc4400" stroke-width="1.5"/>
+        <!-- Spiral bump pattern -->
+        <circle cx="70"  cy="56"  r="10" fill="none" stroke="#cc4400" stroke-width="1.2"/>
+        <circle cx="44"  cy="70"  r="9"  fill="none" stroke="#cc4400" stroke-width="1.1"/>
+        <circle cx="96"  cy="70"  r="9"  fill="none" stroke="#cc4400" stroke-width="1.1"/>
+        <circle cx="32"  cy="96"  r="9"  fill="none" stroke="#cc4400" stroke-width="1"/>
+        <circle cx="70"  cy="86"  r="10" fill="none" stroke="#cc4400" stroke-width="1.2"/>
+        <circle cx="108" cy="96"  r="9"  fill="none" stroke="#cc4400" stroke-width="1"/>
+        <circle cx="38"  cy="122" r="8"  fill="none" stroke="#cc4400" stroke-width="1"/>
+        <circle cx="70"  cy="112" r="10" fill="none" stroke="#cc4400" stroke-width="1.2"/>
+        <circle cx="102" cy="122" r="8"  fill="none" stroke="#cc4400" stroke-width="1"/>
+        <circle cx="50"  cy="144" r="8"  fill="none" stroke="#cc4400" stroke-width="0.9"/>
+        <circle cx="70"  cy="138" r="9"  fill="none" stroke="#cc4400" stroke-width="1"/>
+        <circle cx="90"  cy="144" r="8"  fill="none" stroke="#cc4400" stroke-width="0.9"/>
+        <!-- Spiral inner lines -->
+        <path d="M70 70 Q78 78 70 86 Q62 78 70 70Z" fill="none" stroke="#cc4400" stroke-width="0.8"/>
+        <path d="M70 96 Q80 106 70 116 Q60 106 70 96Z" fill="none" stroke="#cc4400" stroke-width="0.8"/>
+        <!-- Stem/top -->
+        <path d="M70 4 Q70 0 73 0 Q76 4 73 10 Q70 14 67 10 Q64 4 67 0 Q70 0 70 4Z" fill="#cc4400"/>
+        <!-- Decorative outer petals -->
+        <path d="M70 22 Q80 10 90 18 Q80 28 70 22Z" fill="none" stroke="#cc4400" stroke-width="0.8"/>
+        <path d="M70 22 Q60 10 50 18 Q60 28 70 22Z" fill="none" stroke="#cc4400" stroke-width="0.8"/>
+        <path d="M108 40 Q120 30 126 42 Q116 52 108 40Z" fill="none" stroke="#cc4400" stroke-width="0.8"/>
+        <path d="M32 40 Q20 30 14 42 Q24 52 32 40Z" fill="none" stroke="#cc4400" stroke-width="0.8"/>
+        <path d="M118 90 Q132 84 134 98 Q120 102 118 90Z" fill="none" stroke="#cc4400" stroke-width="0.8"/>
+        <path d="M22 90 Q8 84 6 98 Q20 102 22 90Z" fill="none" stroke="#cc4400" stroke-width="0.8"/>
+      </g>
 
-      <!-- Overall vignette -->
-      <radialGradient id="svign" cx="50%" cy="50%">
-        <stop offset="40%" stop-color="rgba(0,0,0,0)"/>
-        <stop offset="100%" stop-color="rgba(0,0,0,0.65)"/>
-      </radialGradient>
-      <rect width="560" height="440" fill="url(#svign)"/>
+      <!-- ── VIGNETTE overlay ── -->
+      <rect width="560" height="280" fill="url(#vig)"/>
+      <!-- Left edge darkening (behind cliffs) -->
+      <rect x="0" y="0" width="80" height="280" fill="rgba(0,0,0,0.45)"/>
+      <!-- Right edge darkening -->
+      <rect x="480" y="0" width="80" height="280" fill="rgba(0,0,0,0.35)"/>
+
+      </g>
     </svg>
   </div>
   <div class="story-right sr">
